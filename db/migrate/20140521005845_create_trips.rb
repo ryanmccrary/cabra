@@ -6,6 +6,7 @@ class CreateTrips < ActiveRecord::Migration
       t.integer :group
       t.integer :scheduled_participants
       t.integer :actual_participants
+      t.integer :plan_id
       t.string :pickup_time
       t.string :dropoff_time
       t.datetime :date
