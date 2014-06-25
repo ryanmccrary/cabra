@@ -7,6 +7,6 @@ class CreatePlans < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :unique_identifier
+    add_index :plans, :unique_identifier
   end
 end

@@ -15,6 +15,6 @@ class CreateTrips < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :group
+    add_index :trips, :group
   end
 end
