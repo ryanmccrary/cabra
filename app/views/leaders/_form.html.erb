@@ -13,8 +13,14 @@ Form
     </div>
   <% end %>
 
+  <%= f.label 'First Name' %>
   <%= f.text_field :first_name %>
 
+  <%= f.text_field :last_name %>
+
+  <%= f.text_field :email %>
+
+  <%= f.text_field :telephone %>
 
   <%= f.input :group_id, collection: Group.all, label_method: :name %>
           
