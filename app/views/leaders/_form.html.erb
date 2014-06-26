@@ -15,7 +15,8 @@ Form
 
   <%= f.text_field :first_name %>
 
-  <%= f.hidden_field :user_id, :value => current_user.id %>
+
+  <%= f.input :group_id, collection: Group.all, label_method: :name %>
           
   <%= f.submit class: "btn" %>
 
