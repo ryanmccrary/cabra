@@ -1,4 +1,4 @@
-class Trips < ActiveRecord::Base
+class Trip < ActiveRecord::Base
   belongs_to :group
   belongs_to :plan
 

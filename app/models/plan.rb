@@ -1,4 +1,4 @@
-class Plans < ActiveRecord::Base
+class Plan < ActiveRecord::Base
   belongs_to :group
   
   has_many :trips
