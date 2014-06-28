@@ -1,9 +1,13 @@
-All teh leaders
-
-<% @leaders.each do |leader| %>
-
-  <%= leader.first_name %> <%= leader.last_name %>
 
 
+<table class="table table-striped">
 
-<% end %>
+  <% @leaders.each do |leader| %>
+    <tr>
+    <td><%= leader.first_name %> <%= leader.last_name %></td>
+    <td><%= leader.group.name %></td>
+    <td><%= link_to "Edit", edit_leader_path(leader) %></td>
+   </tr>
+  <% end %>
+
+</table>
