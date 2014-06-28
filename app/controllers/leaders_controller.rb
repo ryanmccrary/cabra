@@ -10,7 +10,7 @@ class LeadersController < ApplicationController
   def create
     @leader = Leader.new(leader_params)
     if @leader.save
-      redirect_to leaders_path, notice: "Leader" + @leaders.first_name + " successfully created"
+      redirect_to leaders_path, notice: "Leader" + @leader.first_name + " successfully created"
     else
       render "new"
     end
