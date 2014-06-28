@@ -1,0 +1,28 @@
+<%= simple_form_for(@group) do |f| %>
+  <% if @group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+      <% @group.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label 'Group Name' %>
+  <%= f.text_field :name %>
+
+  <%= f.text_field :street %>
+
+  <%= f.text_field :city %>
+
+  <%= f.text_field :state %>
+
+  <%= f.text_field :zip %>
+          
+  <%= f.submit class: "btn" %>
+
+
+<% end %>
