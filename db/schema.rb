@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140521011155) do
+ActiveRecord::Schema.define(version: 20140629212048) do
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20140521011155) do
   create_table "trips", force: true do |t|
     t.integer  "trip_type"
     t.integer  "location"
-    t.integer  "group"
+    t.integer  "group_id"
     t.integer  "scheduled_participants"
     t.integer  "actual_participants"
     t.integer  "plan_id"
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 20140521011155) do
     t.datetime "updated_at"
   end
 
-  add_index "trips", ["group"], name: "index_trips_on_group"
+  add_index "trips", ["group_id"], name: "index_trips_on_group_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
