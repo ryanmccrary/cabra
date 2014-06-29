@@ -6,6 +6,7 @@ class TripsController < ApplicationController
   end
   def new
     @trip = Trip.new
+    @group = Group.find(params[:group])
   end
   def create
     @trip = Trip.new(trip_params)
