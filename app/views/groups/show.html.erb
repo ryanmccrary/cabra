@@ -9,3 +9,12 @@ Show group
 <%= link_to "Edit", edit_group_path(@group) %>
 
 <%= link_to "New Trip", new_trip_path( :group => @group ) %>
+
+<br /><br />
+
+Upcoming Trips:
+
+<% @trips.each do |trip| %>
+  <%= trip.id %>
+
+<% end  %>
