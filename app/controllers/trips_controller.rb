@@ -5,8 +5,12 @@ class TripsController < ApplicationController
     @trips = Trip.all
   end
   def new
+    if params[:group]
     @trip = Trip.new
     @group = Group.find(params[:group])
+  else
+    redirect_to groups_path, notice: "Select a group to make a trip"
+  end
   end
   def create
     @trip = Trip.new(trip_params)
