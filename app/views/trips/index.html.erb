@@ -3,7 +3,7 @@
   <% @trips.each do |trip| %>
     <tr>
       <td><%= trip.date %></td>
-      <td><%= trip.group.name %></td>
+      <td><%= trip.group_id %></td>
       <td><%= link_to "Edit", edit_trip_path(trip) %></td>
     </tr>
   <% end %>
