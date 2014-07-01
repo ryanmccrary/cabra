@@ -1,0 +1,15 @@
+All locations
+
+<table class="table table-striped">
+
+  <% @locations.each do |location| %>
+    <tr>
+    <td><%= location.name %></td>
+    <td><%= leader.state %></td>
+    <td><%= link_to "Edit", edit_leader_path(location) %></td>
+   </tr>
+  <% end %>
+
+</table>
+
+<%= link_to "Add new location", new_location_path %>
