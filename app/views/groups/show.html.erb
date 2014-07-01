@@ -14,7 +14,13 @@ Show group
 
 Upcoming Trips:
 
-<% @trips.each do |trip| %>
-  <%= trip.id %>
 
-<% end  %>
+
+<table class="table">  
+  <% @trips.each do |trip| %>
+    <tr>
+      <td><%= trip.id %></td>
+      <td><%= trip.created_at  %></td>
+    </tr>
+  <% end  %>
+</table>
