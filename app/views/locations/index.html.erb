@@ -5,7 +5,7 @@ All locations
   <% @locations.each do |location| %>
     <tr>
     <td><%= location.name %></td>
-    <td><%= leader.state %></td>
+    <td><%= location.state %></td>
     <td><%= link_to "Edit", edit_leader_path(location) %></td>
    </tr>
   <% end %>
@@ -14,4 +14,5 @@ All locations
 
 <%= link_to "Add new location", new_location_path %>
 
-<%= google_static_image("61%20Byrdland%20Dr%20Greenville%20SC%2029607") %>
+<%= google_link_to("Topton NC") %>
+<%= google_static_image("Topton NC") %>
