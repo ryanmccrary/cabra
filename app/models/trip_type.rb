@@ -1,3 +1,3 @@
-class TripTypes < ActiveRecord::Base
+class TripType < ActiveRecord::Base
   
 end
