@@ -9,6 +9,11 @@ class LocationsController < ApplicationController
   end
   def create
     @location = Location.new(location_params)
+    if @location.save
+      redirect_to locations_path, notice: @location.name + " successfully created"
+    else
+      render "new"
+    end
   end
   def show
     @location = Location.find(params[:id])
