@@ -22,6 +22,7 @@ class TripsController < ApplicationController
   end
   def show
     @trip = Trip.find(params[:id])
+    @location = Location.find(@trip.location)
   end
   def edit
     @trip = Trip.find(params[:id])
