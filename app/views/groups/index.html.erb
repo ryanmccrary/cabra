@@ -7,9 +7,9 @@ All teh groups
     <tr>
       <td><%= link_to group.name, group_path(group) %></td>
       <td><%= group.city %></td>
-      <td>Leaders: 
+      <td>
         <% group.leaders.each do |leader| %>
-          <%= leader.first_name %> <%= leader.last_name %>
+          <%= leader.first_name %> <%= leader.last_name %><br />
         <% end %>
       </td>
       <td><%= link_to "Edit", edit_group_path(group) %></td>
