@@ -27,7 +27,12 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
   end
   def update
-    
+    @trip = Trip.find(params[:id])
+    if @trip.update_attributes(trip_params)
+      redirect_to trips_path, notice: "Trip successfully updated!"
+    else
+      render "edit"
+    end
   end
 
     private
