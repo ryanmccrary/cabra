@@ -1,0 +1,6 @@
+<h2><%= @location.name %></h2>
+
+<%= google_static_image(@location.full_address) %>
+
+<br />
+<%= @location.name %> address: <%= google_link_to(@location.full_address) %>
