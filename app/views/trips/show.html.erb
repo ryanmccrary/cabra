@@ -1,1 +1,6 @@
-<%= @group.name %> trip to <%= @location.name %>
+<h3><%= @group.name %> trip to <%= @location.name %></h3>
+
+<%= google_static_image(@location.full_address) %>
+
+<br />
+<%= @location.name %> address: <%= google_link_to(@location.full_address) %>
