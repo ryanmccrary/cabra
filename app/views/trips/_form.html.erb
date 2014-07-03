@@ -18,8 +18,9 @@
 
   <%= f.text_field :dropoff_time %>
 
+  <% if params[:group].present? %>
   <%= f.hidden_field :group_id, value: @group.id %>
-          
+  <% end %>
   <%= f.submit class: "btn" %>
 
 <% end %>
