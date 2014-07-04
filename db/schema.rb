@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140629212048) do
+ActiveRecord::Schema.define(version: 20140704135144) do
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20140629212048) do
 
   create_table "trips", force: true do |t|
     t.integer  "trip_type"
-    t.integer  "location"
+    t.integer  "location_id"
     t.integer  "group_id"
     t.integer  "scheduled_participants"
     t.integer  "actual_participants"
