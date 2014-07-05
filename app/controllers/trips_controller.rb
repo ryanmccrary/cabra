@@ -22,7 +22,7 @@ class TripsController < ApplicationController
   end
   def show
     @trip = Trip.find(params[:id])
-    @location = Location.find(@trip.location)
+    @location = Location.find(@trip.location_id)
     @group = Group.find(@trip.group)
   end
   def edit
@@ -40,7 +40,7 @@ class TripsController < ApplicationController
     private
 
     def trip_params
-      params.require(:trip).permit(:trip_type, :location, :group_id, 
+      params.require(:trip).permit(:trip_type, :location_id, :group_id, 
                                   :scheduled_participants, :actual_participants,
                                   :plan_id, :pickup_time, :dropoff_time, 
                                   :date)

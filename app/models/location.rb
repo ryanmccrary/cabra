@@ -1,4 +1,5 @@
 class Location < ActiveRecord::Base
+  has_many :areas
   has_many :trips, through: :areas
 
   def full_address

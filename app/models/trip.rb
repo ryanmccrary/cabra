@@ -1,9 +1,10 @@
 class Trip < ActiveRecord::Base
   belongs_to :group
   belongs_to :plan
+  has_many :areas
   has_many :locations, through: :areas
 
   has_one :trip_type
 
-  validates_presence_of :group_id
+  validates_presence_of :group_id, :location_id
 end
