@@ -1,7 +1,15 @@
+<%= link_to "Create New Leader", new_leader_path %>&nbsp;<span class="glyphicon glyphicon-new-window"></span>
 
+<br /><br />
 
-<table class="table table-striped">
-
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <td><b>Leader Name</b></td>
+      <td><b>Group Name</b></td>
+      <td><b>Edit</b></td>
+    </tr>
+  </thead>
   <% @leaders.each do |leader| %>
     <tr>
     <td><%= leader.first_name %> <%= leader.last_name %></td>
