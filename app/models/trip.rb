@@ -6,5 +6,5 @@ class Trip < ActiveRecord::Base
 
   default_scope order('date asc')
 
-  validates_presence_of :group_id
+  validates_presence_of :group_id, :location_id
 end
