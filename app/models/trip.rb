@@ -4,5 +4,7 @@ class Trip < ActiveRecord::Base
 
   has_one :trip_type
 
+  default_scope order('date asc')
+
   validates_presence_of :group_id
 end
