@@ -1,8 +1,16 @@
-All teh groups
+<%= link_to "Create New Group", new_group_path %>&nbsp;<span class="glyphicon glyphicon-new-window"></span>
 
+<br /><br />
 
 <table class="table table-striped">
-
+  <thead>
+    <tr>
+      <td><b>Group Name</b></td>
+      <td><b>City</b></td>
+      <td><b>Associated Leaders</b></td>
+      <td><b></b></td>
+    </tr>
+  </thead>
   <% @groups.each do |group| %>
     <tr>
       <td><%= link_to group.name, group_path(group) %></td>
