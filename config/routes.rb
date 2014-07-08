@@ -11,6 +11,7 @@ Cabra::Application.routes.draw do
   resources :leaders
   resources :locations
   resources :trips
+  resources :trip_types
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
