@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140704135144) do
+ActiveRecord::Schema.define(version: 20140708185849) do
+
+  create_table "activities", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "activities", ["name"], name: "index_activities_on_name", unique: true
+
+  create_table "areas", force: true do |t|
+    t.integer  "location_id"
+    t.integer  "trip_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -58,16 +73,8 @@ ActiveRecord::Schema.define(version: 20140704135144) do
     t.datetime "updated_at"
   end
 
-  create_table "trip_types", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "trip_types", ["name"], name: "index_trip_types_on_name", unique: true
-
   create_table "trips", force: true do |t|
-    t.integer  "trip_type"
+    t.integer  "activity"
     t.integer  "location_id"
     t.integer  "group_id"
     t.integer  "scheduled_participants"
