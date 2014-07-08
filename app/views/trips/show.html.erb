@@ -1,6 +1,38 @@
-<h3><%= @group.name %> trip to <%= @location.name %></h3>
 
-<%= google_static_image(@location.full_address) %>
+<h3><%= @group.name %>'s rafting trip on <b><%= @trip.date.strftime("%B %d, %Y") %></b></h3>
+<br /><br />
 
-<br />
-<%= @location.name %> address: <%= google_link_to(@location.full_address) %>
+<div class="row">
+  <div class="col-md-3">
+    <h4>Pickup</h4>
+    <hr />
+    <h4><%= @trip.pickup_time %></h4>
+      <% if @trip.pickup == false %>
+        <h4>Meet at location</h4>
+      <% else %>
+        <h4>@ <%= @trip.group.name %></h4>
+      <% end %>
+      <h4></h4>
+    <br /><br />
+    <h4>Dropoff</h4>
+    <hr />
+    <h4><%= @trip.dropoff_time %></h4>
+  </div>
+  <div class="col-md-3">
+    <h4># of participants</h4>
+    <hr />
+    <h4><%= @trip.scheduled_participants %></h4>
+    <h4>&nbsp;</h4>
+    <br /><br />
+    <h4>Location</h4>
+    <hr />
+    <h4><%= @location.name %></h4>
+    <h4><%= @location.street %></h4>
+    <h4><%= @location.city %>, <%= @location.state %> <%= @location.zip %></h4>
+  </div>
+
+  <div class="col-md-6">
+    <h4>Directions <%= google_link_to(@location.full_address) %></h4>
+    <%= google_static_image(@location.full_address) %>
+  </div>
+</div>
