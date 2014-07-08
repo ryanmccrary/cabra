@@ -1,6 +1,7 @@
 class Trip < ActiveRecord::Base
   belongs_to :group
   belongs_to :plan
+  belongs_to :location
 
   has_one :trip_type
 
