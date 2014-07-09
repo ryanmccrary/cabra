@@ -1,16 +1,26 @@
-All locations
+<%= link_to "Add new location", new_location_path %>&nbsp;<span class="glyphicon glyphicon-new-window"></span>
 
-<table class="table table-striped">
+<h3>All locations</h3>
 
-  <% @locations.each do |location| %>
-    <tr>
-    <td><%= location.name %></td>
-    <td><%= location.state %></td>
-    <td><%= location.full_address %></td>
-    <td><%= link_to "Edit", edit_location_path(location) %></td>
-   </tr>
-  <% end %>
+<% if @locations.empty? %>
 
-</table>
+  <h1>You don't have any locations yet, please create a location to get started</h1>
 
-<%= link_to "Add new location", new_location_path %>
+  <h3><%= link_to "Add new location", new_location_path %></h3>
+
+<% else %>
+
+    <table class="table table-striped">
+      <% @locations.each do |location| %>
+        <tr>
+        <td><%= location.name %></td>
+        <td><%= location.state %></td>
+        <td><%= location.full_address %></td>
+        <td><%= link_to "Edit", edit_location_path(location) %></td>
+       </tr>
+      <% end %>
+    </table>
+
+<% end %>
+
+
