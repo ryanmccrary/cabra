@@ -2,24 +2,30 @@
 
 <br /><br />
 
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <td><b>Trip Date</b></td>
-      <td><b>Group Name</b></td>
-      <td><b>Trip Location</b></td>
-      <td><b></b></td>
-      <td><b></b></td>
-    </tr>
-  </thead>  
-  <% @trips.each do |trip| %>
-    <tr>
-      <td><%= trip.date.strftime("%b %d, %Y") %></td>
-      <td><%= trip.group.name %></td>
-      <td><%= trip.location.name %></td>
-      <td><%= link_to "View", trip_path(trip) %></td>
-      <td><%= link_to "Edit", edit_trip_path(trip) %></td>
-    </tr>
-  <% end %>
+<% if @trips.empty? %>
 
-</table>
+  <h1>You haven't created any trips yet, go select a group to make a trip</h1>
+
+<% else %>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <td><b>Trip Date</b></td>
+          <td><b>Group Name</b></td>
+          <td><b>Trip Location</b></td>
+          <td><b></b></td>
+          <td><b></b></td>
+        </tr>
+      </thead>  
+      <% @trips.each do |trip| %>
+        <tr>
+          <td><%= trip.date.strftime("%b %d, %Y") %></td>
+          <td><%= trip.group.name %></td>
+          <td><%= trip.location.name %></td>
+          <td><%= link_to "View", trip_path(trip) %></td>
+          <td><%= link_to "Edit", edit_trip_path(trip) %></td>
+        </tr>
+      <% end %>
+    </table>
+
+<% end %>
