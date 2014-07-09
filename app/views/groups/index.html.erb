@@ -2,26 +2,35 @@
 
 <br /><br />
 
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <td><b>Group Name</b></td>
-      <td><b>City</b></td>
-      <td><b>Associated Leaders</b></td>
-      <td><b></b></td>
-    </tr>
-  </thead>
-  <% @groups.each do |group| %>
-    <tr>
-      <td><%= link_to group.name, group_path(group) %></td>
-      <td><%= group.city %></td>
-      <td>
-        <% group.leaders.each do |leader| %>
-          <%= link_to leader.full_name, edit_leader_path(leader) %><br />
-        <% end %>
-      </td>
-      <td><%= link_to "Edit", edit_group_path(group) %></td>
-    </tr>
-  <% end %>
+<% if @groups.empty? %>
 
-</table>
+  <h1>You need to create a group before you can make a trip</h1>
+
+  <h3><%= link_to "Create a New Group", new_group_path %> to get started</h3>
+
+<% else %>
+
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <td><b>Group Name</b></td>
+          <td><b>City</b></td>
+          <td><b>Associated Leaders</b></td>
+          <td><b></b></td>
+        </tr>
+      </thead>
+      <% @groups.each do |group| %>
+        <tr>
+          <td><%= link_to group.name, group_path(group) %></td>
+          <td><%= group.city %></td>
+          <td>
+            <% group.leaders.each do |leader| %>
+              <%= link_to leader.full_name, edit_leader_path(leader) %><br />
+            <% end %>
+          </td>
+          <td><%= link_to "Edit", edit_group_path(group) %></td>
+        </tr>
+      <% end %>
+    </table>
+
+<% end %>
