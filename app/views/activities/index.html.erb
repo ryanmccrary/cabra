@@ -1,0 +1,19 @@
+<%= link_to "Create New Type", new_activity_path %>&nbsp;<span class="glyphicon glyphicon-new-window"></span>
+
+<h4>Available Trip Types</h4>
+<% if @activities.empty? %>
+
+  <h1>No trip types available, please create one.</h1>
+
+<% else %>
+
+  <table class="table table-striped table-hover">
+    <% @activities.each do |activity| %>
+      <tr>
+       <td><%= activity.name %></td>
+       <td><%= link_to "Edit", edit_activity_path(activity) %></td>
+      </tr>
+    <% end %>
+  </table>
+
+<% end %>

@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20140708185849) do
+=======
 ActiveRecord::Schema.define(version: 20140708191750) do
+>>>>>>> master
 
   create_table "activities", force: true do |t|
     t.string   "name"
@@ -74,7 +78,11 @@ ActiveRecord::Schema.define(version: 20140708191750) do
   end
 
   create_table "trips", force: true do |t|
+<<<<<<< HEAD
+    t.integer  "activity"
+=======
     t.integer  "activity_id"
+>>>>>>> master
     t.integer  "location_id"
     t.integer  "group_id"
     t.integer  "scheduled_participants"
