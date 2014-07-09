@@ -24,7 +24,7 @@ class LeadersController < ApplicationController
   def update
     @leader = Leader.find(params[:id])
     if @leader.update_attributes(leader_params)
-      redirect_to groups_path, notice: @leader.first_name + " successfully updated!"
+      redirect_to leaders_path, notice: @leader.first_name + " successfully updated!"
     else
       render "edit"
     end
