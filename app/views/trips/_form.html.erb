@@ -11,20 +11,32 @@
     </div>
   <% end %>
 
+  <div class="row">
+    <div class="col-md-4">
+      <%= f.label "Number of participants" %><br />
+      <%= f.number_field :scheduled_participants %><br /><br />
+    </div>
+      <div class="col-md-4">
+      <%= f.input :location_id, collection: Location.all, label_method: :name %>
 
-  <%= f.input :location_id, collection: Location.all, label_method: :name %>
+      <%= f.input :activity_id, collection: Activity.all, label_method: :name %>
+    </div>
+    <div class="col-md-4">
+      <%= f.label "Trip date" %> <br />
+      <%= f.date_field :date %> <br /><br />
 
-  <%= f.input :activity_id, collection: Activity.all, label_method: :name %>
+      <%= f.label "Pickup time" %><br />
+      <%= f.time_field :pickup_time %><br /><br />
 
-  <%= f.date_field :date %>
+      <%= f.label "Dropoff time" %><br />
+      <%= f.time_field :dropoff_time %><br /><br />
+    </div>
+  </div>  
 
-  <%= f.time_field :pickup_time %>
+    <% if params[:group].present? %>
+      <%= f.hidden_field :group_id, value: @group.id %>
+    <% end %>
+    <%= f.submit class: "btn" %>
 
-  <%= f.time_field :dropoff_time %>
-
-  <% if params[:group].present? %>
-  <%= f.hidden_field :group_id, value: @group.id %>
   <% end %>
-  <%= f.submit class: "btn" %>
 
-<% end %>
