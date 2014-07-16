@@ -1,5 +1,4 @@
-<%= link_to "Select a group to create a new trip", groups_path %>&nbsp;<span class="glyphicon glyphicon-new-window"></span>
-
+<button class="btn btn-primary" data-toggle="modal" data-target=".trip-modal">Create new trip</button>
 <br /><br />
 
 <% if @trips.empty? %>
@@ -29,3 +28,17 @@
     </table>
 
 <% end %>
+
+<div class="modal fade trip-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-content">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-title">Select a group to create a trip</div>
+        <div class="modal-body">
+          <% @groups.each do |group| %>
+            <%= group.name %>
+            <%= link_to "New Trip", new_trip_path( :group => group ) %><br />
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>

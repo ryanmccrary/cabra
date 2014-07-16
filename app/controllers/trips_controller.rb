@@ -3,6 +3,7 @@ class TripsController < ApplicationController
 
   def index
     @trips = Trip.all
+    @groups = Group.all
   end
   def new
     if params[:group]
