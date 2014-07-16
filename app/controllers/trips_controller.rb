@@ -2,7 +2,7 @@ class TripsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @trips = Trip.all
+    @trips = Trip.future
     @groups = Group.all
   end
   def new

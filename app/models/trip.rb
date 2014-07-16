@@ -6,5 +6,9 @@ class Trip < ActiveRecord::Base
 
   default_scope order('date asc')
 
+  scope :future, lambda{ where("date < ?", Date.today) }
+
+  scope :past, lambda{ where("date <= ?", Date.today) }
+
   validates_presence_of :group_id, :location_id, :activity_id
 end
