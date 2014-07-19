@@ -3,6 +3,7 @@ class TripsController < ApplicationController
 
   def index
     @trips = Trip.future
+    @trips_past = Trip.past
     @groups = Group.all
   end
   def new
