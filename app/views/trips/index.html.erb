@@ -34,6 +34,8 @@
       <% end %>
     </table>
 
+    <center><%= will_paginate @past_trips %></center>
+
   <% else %>
 <!-- future trips (default) -->
     <h4>Upcoming Trips</h4>
@@ -58,6 +60,8 @@
         </tr>
       <% end %>
     </table>
+
+    <center><%= will_paginate @trips %></center>
 
   <% end %>
 
