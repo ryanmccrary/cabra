@@ -9,9 +9,10 @@
 
 <% else %>
 
-  <% if time = "past" %>
+  <% if params[:type] == "past" %>
 <!-- past trips -->
     <h4>Past trips</h4>
+    <%= link_to "View Upcoming Trips", trips_path %>
     <table class="table table-striped table-hover">
       <thead>
         <tr>
@@ -35,6 +36,8 @@
 
   <% else %>
 <!-- future trips (default) -->
+    <h4>Upcoming Trips</h4>
+    <%= link_to "View Past Trips", trips_path( :type => "past" ) %>
     <table class="table table-striped table-hover">
       <thead>
         <tr>
