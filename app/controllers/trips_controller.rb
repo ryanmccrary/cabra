@@ -2,17 +2,17 @@ class TripsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @trips = Trip.future
-    @trips_past = Trip.past
+    @trips = Trip.future.paginate(:page => params[:page], :per_page => 10)
+    @trips_past = Trip.past.paginate(:page => params[:page], :per_page => 10)
     @groups = Group.all
   end
   def new
     if params[:group]
     @trip = Trip.new
     @group = Group.find(params[:group])
-  else
+    else
     redirect_to groups_path, notice: "Select a group to make a trip"
-  end
+    end
   end
   def create
     @trip = Trip.new(trip_params)
