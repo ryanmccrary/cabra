@@ -5,10 +5,14 @@ class Plan < ActiveRecord::Base
 
   before_create :create_unique_id
 
+  def to_param
+    unique_identifier
+  end
+
   def create_unique_id
     begin
       self.unique_identifier = SecureRandom.urlsafe_base64(6).downcase
     end while self.class.exists?(:unique_identifier => unique_identifier)
   end
-  
+
 end

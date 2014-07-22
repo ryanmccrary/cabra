@@ -15,6 +15,9 @@ class PlansController < ApplicationController
       render "new"
     end
   end
+  def show
+    @plan = Plan.find_by_unique_identifier(params[:id])
+  end
 
     private
 
