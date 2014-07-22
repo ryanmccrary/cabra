@@ -5,6 +5,12 @@ class Plan < ActiveRecord::Base
 
   before_create :create_unique_id
 
+  validates :unique_identifier, uniqueness: true
+
+  def full_name
+    first_name + " " + last_name
+  end
+
   def to_param
     unique_identifier
   end
