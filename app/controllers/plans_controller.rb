@@ -6,6 +6,11 @@ class PlansController < ApplicationController
   end
   def create
     @plan = Plan.new(plan_params)
+    if @plan.save
+      redirect_to plans_path, notice: "Plan successfully created"
+    else
+      render "new"
+    end
   end
 
     private
