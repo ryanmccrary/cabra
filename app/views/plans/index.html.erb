@@ -1,1 +1,34 @@
-All the plans!
+<h3>Current Trip Plans</h3>
+
+<% if @plans.empty? %>
+
+  <h1>You have no plans yet</h1>
+
+  <h3><%= link_to "Create a new trip plan", new_plan_path %></h3>
+
+<% else %>
+
+  <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <td><b>Plan</b></td>
+          <td><b>Group</b></td>
+          <td><b>Leader</b></td>
+          <td><b>Sent?</b></td>
+          <td><b>Link</b></td>
+        </tr>
+      </thead>
+
+      <% @plans.each do |plan| %>
+      <tr>
+        <td></td>
+        <td><%= plan.group.name %></td>
+        <td></td>
+        <td></td>
+        <td><%= link_to plan_path(plan), plan_path(plan) %></td>
+      </tr>
+      <% end %>
+
+  </table>
+
+<% end %>
