@@ -1,0 +1,13 @@
+<h3>Add trips to plan for <%= @plan.group.name %></h3>
+
+<%= simple_form_for(@plan) do |f| %>
+  <% @possible.each do |possible| %>
+    <div class="check">
+      <%= f.check_box :id %>
+      <%= f.label "#{possible.date.strftime("%B %d, %Y")} - #{possible.activity.name}" %>
+    </div>
+  <% end %>  
+  <%= f.submit class: "btn" %>
+<% end %>
+
+<%= debug(params) %>

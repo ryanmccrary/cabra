@@ -32,8 +32,12 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-group :development do
+group :development, :test do
  gem 'better_errors'
+ gem 'pry', '~> 0.9.0'                    # Pry > IRB
+ gem 'pry-doc', '~> 0.4.0'                # Documentation plugin for Pry
+ gem 'pry-rails', '~> 0.2.0'              # Pry rails integration
+ gem 'pry-remote', '~> 0.1.7'             # "Remotely" pry into code execution
 end
 
 group :doc do

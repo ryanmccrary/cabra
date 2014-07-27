@@ -10,13 +10,26 @@ class PlansController < ApplicationController
   def create
     @plan = Plan.new(plan_params)
     if @plan.save
-      redirect_to plans_path, notice: "Plan successfully created"
+      if @plan.trips.empty?
+        @possible = @plan.group.trips
+        render "add_trips"
+      else
+        redirect_to plans_path, notice: "Plan successfully created"
+      end
     else
       render "new"
     end
   end
   def show
     @plan = Plan.find_by_unique_identifier(params[:id])
+  end
+  def update
+    @plan = Plan.find_by_unique_identifier(params[:id])
+    if @plan.update_attributes(plan_params)
+      redirect_to plans_path, notice: "Plan successfully updated!"
+    else
+      render "edit"
+    end
   end
 
     private

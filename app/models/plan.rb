@@ -3,6 +3,8 @@ class Plan < ActiveRecord::Base
   
   has_many :trips
 
+  after_update :add_each_trip
+
   before_create :create_unique_id
 
   validates :unique_identifier, uniqueness: true
@@ -13,6 +15,12 @@ class Plan < ActiveRecord::Base
 
   def to_param
     unique_identifier
+  end
+
+  def add_each_trip
+    possible.each do |trip|
+      trip.plan_id = self.id
+    end
   end
 
   def create_unique_id
