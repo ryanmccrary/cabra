@@ -1,6 +1,6 @@
 <h3>Add trips to plan for <%= @plan.group.name %></h3>
 
-<%= simple_form_for(@plan) do |f| %>
+<%= simple_form_tag url: 'plans_controller/add_trips' do |f| %>
   <% @possible.each do |possible| %>
     <div class="check">
       <%= f.check_box :id %>
