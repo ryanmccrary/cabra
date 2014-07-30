@@ -14,6 +14,7 @@
           <td><b>Plan</b></td>
           <td><b>Group</b></td>
           <td><b>Leader</b></td>
+          <td><b>Edit</b></td>
           <td><b>Sent?</b></td>
           <td><b>Link</b></td>
         </tr>
@@ -24,6 +25,7 @@
         <td></td>
         <td><%= plan.group.name %></td>
         <td></td>
+        <td><%= link_to "Edit", edit_plan_path(plan) %></td>
         <td></td>
         <td><%= link_to plan_path(plan), plan_path(plan) %></td>
       </tr>

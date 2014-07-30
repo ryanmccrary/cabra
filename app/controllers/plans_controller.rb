@@ -23,6 +23,12 @@ class PlansController < ApplicationController
   def show
     @plan = Plan.find_by_unique_identifier(params[:id])
   end
+  def edit
+    @plan = Plan.find_by_unique_identifier(params[:id])
+    @group = @plan.group
+    @possible = @plan.group.trips
+    render "add_trips"
+  end
   def update
     @plan = Plan.find_by_unique_identifier(params[:id])
     if @plan.update_attributes(plan_params)
@@ -32,7 +38,7 @@ class PlansController < ApplicationController
     end
   end
   def add_trips
-    @plan = Plan.find_by_unique_identifier(params[:id])
+
     
   end
 
