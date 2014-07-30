@@ -2,8 +2,13 @@
 
 <%= form_tag(add_trips_plan_path(@plan)) do %>
   <% @possible.each do |trip| %>
-    <%= check_box_tag(trip.id) %>
+      <div class="input-group">
+        <%= check_box_tag(trip.id) %>
+        <%= label_tag("#{trip.activity.name} on #{trip.date}") %>
+      </div>
   <% end %>
+
+  <%= submit_tag("Submit") %>
 <% end %>
 
 <%= debug(params) %>
