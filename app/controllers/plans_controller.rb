@@ -31,6 +31,9 @@ class PlansController < ApplicationController
       render "edit"
     end
   end
+  def add_trips
+    
+  end
 
     private
 

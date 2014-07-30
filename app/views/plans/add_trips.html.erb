@@ -1,13 +1,7 @@
 <h3>Add trips to plan for <%= @plan.group.name %></h3>
 
-<%= simple_form_tag url: 'plans_controller/add_trips' do |f| %>
-  <% @possible.each do |possible| %>
-    <div class="check">
-      <%= f.check_box :id %>
-      <%= f.label "#{possible.date.strftime("%B %d, %Y")} - #{possible.activity.name}" %>
-    </div>
-  <% end %>  
-  <%= f.submit class: "btn" %>
+<%= form_tag(plan_add_trips_path) do %>
+
 <% end %>
 
 <%= debug(params) %>
