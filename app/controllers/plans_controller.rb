@@ -32,6 +32,7 @@ class PlansController < ApplicationController
     end
   end
   def add_trips
+    @plan = Plan.find_by_unique_identifier(params[:id])
     
   end
 
