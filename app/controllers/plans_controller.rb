@@ -1,5 +1,5 @@
 class PlansController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:show]
 
   def index
     @plans = Plan.all
@@ -38,8 +38,9 @@ class PlansController < ApplicationController
     end
   end
   def add_trips
-
-    
+    @plan = Plan.find_by_unique_identifier(params[:id])
+    trip.each.update_attributes(plan_id: @plan.id)
+    redirect_to plans_path, notice: "Trips added to plan"    
   end
 
     private
