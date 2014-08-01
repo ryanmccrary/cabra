@@ -42,9 +42,10 @@ class PlansController < ApplicationController
     trip.each.update_attributes(plan_id: @plan.id)
     redirect_to plans_path, notice: "Trips added to plan"    
   end
-  def destory
+  def destroy
     @plan = Plan.find_by_unique_identifier(params[:id])
     @plan.destroy
+    redirect_to plans_path, notice: "Plan destroyed"
   end
 
     private
