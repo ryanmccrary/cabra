@@ -1,5 +1,5 @@
 class PlansController < ApplicationController
-  before_filter :authenticate_user!, except: [:show]
+  before_filter :authenticate_user!
 
   def index
     @plans = Plan.all
@@ -41,6 +41,10 @@ class PlansController < ApplicationController
     @plan = Plan.find_by_unique_identifier(params[:id])
     trip.each.update_attributes(plan_id: @plan.id)
     redirect_to plans_path, notice: "Trips added to plan"    
+  end
+  def destory
+    @plan = Plan.find_by_unique_identifier(params[:id])
+    @plan.destroy
   end
 
     private
