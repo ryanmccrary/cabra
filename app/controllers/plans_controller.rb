@@ -11,7 +11,7 @@ class PlansController < ApplicationController
     @plan = Plan.new(plan_params)
     if @plan.save
       if @plan.trips.empty?
-        @possible = @plan.group.trips
+        @possible = @plan.group.trips.adding_trips
         render "add_trips"
       else
         redirect_to plans_path, notice: "Plan successfully created"
@@ -26,7 +26,7 @@ class PlansController < ApplicationController
   def edit
     @plan = Plan.find_by_unique_identifier(params[:id])
     @group = @plan.group
-    @possible = @plan.group.trips
+    @possible = @plan.group.trips.adding_trips
     render "add_trips"
   end
   def update
