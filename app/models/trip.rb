@@ -10,5 +10,7 @@ class Trip < ActiveRecord::Base
 
   scope :past, lambda{ where("date <= ?", Date.today) }
 
+  scope :adding_trips, lambda{ where("plan_id IS ?", nil) }
+
   validates_presence_of :group_id, :location_id, :activity_id
 end

@@ -13,15 +13,27 @@ Form
     </div>
   <% end %>
 
-  <%= f.label 'First Name' %>
-  <%= f.text_field :first_name %>
+  <div class="input-group">
+    <%= f.label 'First Name' %>
+    <%= f.text_field :first_name %>
+  </div>
 
-  <%= f.text_field :last_name %>
+  <div class="input-group">
+    <%= f.label 'Last Name' %>
+    <%= f.text_field :last_name %>
+  </div>
 
-  <%= f.text_field :email %>
+  <div class="input-group">
+    <%= f.label 'Email address' %>
+    <%= f.text_field :email %>
+  </div>
 
-  <%= f.text_field :telephone %>
+  <div class="input-group">
+    <%= f.label 'Phone number' %>
+    <%= f.text_field :telephone %>
+  </div>
 
+  <%= f.label 'Group Association' %>
   <%= f.input :group_id, collection: Group.all, label_method: :name %>
           
   <%= f.submit class: "btn" %>

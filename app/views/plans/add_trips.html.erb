@@ -1,0 +1,14 @@
+<h3>Add trips to plan for <%= @plan.group.name %></h3>
+
+<%= form_tag(add_trips_plan_path(@plan)) do %>
+  <% @possible.each do |trip| %>
+      <div class="input-group">
+        <%= check_box_tag 'trips[]', trip.id %>
+        <%= label_tag("#{trip.activity.name} on #{trip.date}") %>
+      </div>
+  <% end %>
+
+  <%= submit_tag("Submit") %>
+<% end %>
+
+<%= debug(params) %>

@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20140708185849) do
-=======
-ActiveRecord::Schema.define(version: 20140708191750) do
->>>>>>> master
+ActiveRecord::Schema.define(version: 20140722171658) do
 
   create_table "activities", force: true do |t|
     t.string   "name"
@@ -70,6 +66,8 @@ ActiveRecord::Schema.define(version: 20140708191750) do
     t.boolean  "plan_sent",         default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "group_id"
+    t.integer  "leader_id"
   end
 
   create_table "students", force: true do |t|
@@ -78,11 +76,7 @@ ActiveRecord::Schema.define(version: 20140708191750) do
   end
 
   create_table "trips", force: true do |t|
-<<<<<<< HEAD
-    t.integer  "activity"
-=======
     t.integer  "activity_id"
->>>>>>> master
     t.integer  "location_id"
     t.integer  "group_id"
     t.integer  "scheduled_participants"
