@@ -1,5 +1,6 @@
 class Plan < ActiveRecord::Base
   belongs_to :group
+  belongs_to :leader
   
   has_many :trips
 

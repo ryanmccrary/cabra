@@ -39,11 +39,15 @@ class PlansController < ApplicationController
   end
   def add_trips
     @plan = Plan.find_by_unique_identifier(params[:id])
-    @trips = Trip.find(params[:trips])
-    @trips.each do |trip|
-      trip.update_attributes(plan_id: @plan.id)
-    end
-    redirect_to plans_path, notice: "Trips added to plan"    
+    if @trips
+      @trips = Trip.find(params[:trips])
+      @trips.each do |trip|
+        trip.update_attributes(plan_id: @plan.id)
+      end
+      redirect_to plans_path, notice: "Trips added to #{@plan.leader.full_name} plan for #{@plan.group.name} (Plan id: #{@plan.unique_identifier})"    
+    else
+      redirect_to plans_path, notice: "Plan updated, no trips added."
+    end  
   end
   def destroy
     @plan = Plan.find_by_unique_identifier(params[:id])
