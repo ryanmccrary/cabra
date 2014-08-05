@@ -1,3 +1,5 @@
+<%= link_to "Create New Trip Plan", new_plan_path %>&nbsp;<span class="glyphicon glyphicon-new-window"></span>
+
 <h3>Current Trip Plans</h3>
 
 <% if @plans.empty? %>
@@ -28,7 +30,7 @@
         <td><%= link_to "Edit", edit_plan_path(plan) %></td>
         <td></td>
         <td><%= link_to plan_path(plan), plan_path(plan) %></td>
-        <td><%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
       <% end %>
 
