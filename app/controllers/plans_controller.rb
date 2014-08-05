@@ -1,5 +1,7 @@
 class PlansController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:show]
+
+  layout :public_layout
 
   def index
     @plans = Plan.all
@@ -61,5 +63,13 @@ class PlansController < ApplicationController
     def plan_params
       params.require(:plan).permit(:unique_identifier, :group_id, 
                                   :leader_id, :plan_sent)
+    end
+    
+    def public_layout
+      if user_signed_in?
+        "application"
+      else
+        "public"
+      end
     end
 end
