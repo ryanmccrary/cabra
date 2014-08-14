@@ -21,6 +21,7 @@
           <td><b>Trip Location</b></td>
           <td><b></b></td>
           <td><b></b></td>
+          <td><b>Plan?</b></td>
         </tr>
       </thead>  
       <% @trips_past.each do |trip| %>
@@ -30,6 +31,7 @@
           <td><%= trip.location.name %></td>
           <td><%= link_to "View", trip_path(trip) %></td>
           <td>n/a</td>
+          <td><span class="glyphicon glyphicon-ok"></span></td>
         </tr>
       <% end %>
     </table>
@@ -50,6 +52,7 @@
           <td><b>Trip Location</b></td>
           <td><b></b></td>
           <td><b></b></td>
+          <td><b>Plan?</b></td>
         </tr>
       </thead>  
       <% @trips.each do |trip| %>
@@ -59,6 +62,13 @@
           <td><%= trip.location.name %></td>
           <td><%= link_to "View", trip_path(trip) %></td>
           <td><%= link_to "Edit", edit_trip_path(trip) %></td>
+          <td>
+            <% if trip.plan.nil? %>
+              &nbsp;
+            <% else %>
+              <span class="glyphicon glyphicon-ok"></span>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </table>
