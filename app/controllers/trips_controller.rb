@@ -44,7 +44,7 @@ class TripsController < ApplicationController
     def trip_params
       params.require(:trip).permit(:activity_id, :location_id, :group_id, 
                                   :scheduled_participants, :actual_participants,
-                                  :plan_id, :pickup_time, :dropoff_time, 
+                                  :plan_id, :pickup, :pickup_time, :dropoff_time, 
                                   :date)
     end
 end

@@ -20,6 +20,9 @@
       <%= f.input :location_id, collection: Location.all, label_method: :name %>
 
       <%= f.input :activity_id, collection: Activity.all, label_method: :name %>
+
+
+      <%= f.input :pickup, as: :boolean %>
     </div>
     <div class="col-md-4">
       <%= f.label "Trip date" %> <br />

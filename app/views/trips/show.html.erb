@@ -4,17 +4,19 @@
 
 <div class="row">
   <div class="col-md-3">
-    <h4>Pickup</h4>
+    <% if @trip.pickup == false %>
+      <h4>Meet at <%= @trip.location.name %></h4>
+    <% else %>
+      <h4>Pickup at <%= @trip.group.name %></h4>
+    <% end %>
     <hr />
     <h4><%= @trip.pickup_time %></h4>
-      <% if @trip.pickup == false %>
-        <h4>Meet at location</h4>
-      <% else %>
-        <h4>@ <%= @trip.group.name %></h4>
-      <% end %>
-      <h4></h4>
     <br /><br />
-    <h4>Dropoff</h4>
+    <% if @trip.pickup == false %>
+      <h4>Departure</h4>
+    <% else %>
+      <h4>Return</h4>
+    <% end %>
     <hr />
     <h4><%= @trip.dropoff_time %></h4>
   </div>
