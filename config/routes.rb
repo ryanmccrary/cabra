@@ -9,6 +9,7 @@ Cabra::Application.routes.draw do
 
   resources :groups
   resources :leaders
+  resources :leadernotes
   resources :locations
   resources :trips
   resources :activities

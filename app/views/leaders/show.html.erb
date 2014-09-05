@@ -1,1 +1,45 @@
-Leader
+<div class="row">
+  <div class="col-md-4">
+    <h3><%= @leader.full_name %></h3>
+    <h5><%= @leader.group.name %></h5>
+    <p>Email: <%= @leader.email %></p>
+    <p>Phone: <%= @leader.telephone %></p>
+
+    <hr />
+
+    <h5>Scheduled Trips:</h5>
+    <p></p>
+
+    <hr />
+
+    <h5>Associated Plans:</h5>
+
+    <p></p>
+  </div>
+  <div class="col-md-8">
+    <%= simple_form_for @leadernote do |f| %>
+      <div class="form-row">    
+        <%= f.input :copy, as: :text, input_html: { class: 'form-control' }, label: "New note" %>
+      </div>
+
+      <%= f.hidden_field :leader_id, value: @leader.id %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+
+      <%= f.button :submit, class: "btn btn-primary" %>
+    <% end %>
+    <br /><br />
+
+    <h4>Previous notes:</h4>
+      <% if @notes.blank? %>
+        <h4>There are no notes for this leader (yet)</h4>
+      <% else %>
+        <% @notes.each do |note| %>
+          <div>
+            <p><%= note.copy %></p>
+            <p class="small"><%= note.created_at.strftime("%B %d, %Y") %> by <%= note.user.email %></p>
+          </div>
+          <hr />
+        <% end %>
+      <% end %>
+  </div>
+</div>

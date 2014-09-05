@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140722171658) do
+ActiveRecord::Schema.define(version: 20140905223831) do
 
   create_table "activities", force: true do |t|
     t.string   "name"
@@ -39,6 +39,16 @@ ActiveRecord::Schema.define(version: 20140722171658) do
   end
 
   add_index "groups", ["name"], name: "index_groups_on_name", unique: true
+
+  create_table "leadernotes", force: true do |t|
+    t.integer  "leader_id"
+    t.text     "copy"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "leadernotes", ["leader_id"], name: "index_leadernotes_on_leader_id"
 
   create_table "leaders", force: true do |t|
     t.string   "first_name"
