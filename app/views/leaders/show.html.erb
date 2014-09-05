@@ -23,19 +23,23 @@
       </div>
 
       <%= f.hidden_field :leader_id, value: @leader.id %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
 
       <%= f.button :submit, class: "btn btn-primary" %>
     <% end %>
-
     <br /><br />
 
     <h4>Previous notes:</h4>
-    <% @notes.each do |note| %>
-      <div>
-        <p><%= note.copy %></p>
-        <p class="small"><%= note.created_at.strftime("%B %d, %Y") %> by </p>
-      </div>
-      <hr />
-    <% end %>
+      <% if @notes.blank? %>
+        <h4>There are no notes for this leader (yet)</h4>
+      <% else %>
+        <% @notes.each do |note| %>
+          <div>
+            <p><%= note.copy %></p>
+            <p class="small"><%= note.created_at.strftime("%B %d, %Y") %> by <%= note.user.email %></p>
+          </div>
+          <hr />
+        <% end %>
+      <% end %>
   </div>
 </div>

@@ -17,6 +17,6 @@ class LeadernotesController < ApplicationController
   private
 
   def note_params
-    params.require(:leadernote).permit(:copy, :leader_id)
+    params.require(:leadernote).permit(:copy, :leader_id, :user_id)
   end
 end
