@@ -1,0 +1,4 @@
+class LeadernotesController < ApplicationController
+
+
+end
