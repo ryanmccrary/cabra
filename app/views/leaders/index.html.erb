@@ -18,7 +18,7 @@
       </thead>
       <% @leaders.each do |leader| %>
         <tr>
-        <td><%= leader.first_name %> <%= leader.last_name %></td>
+        <td><%= link_to "#{leader.full_name}", leader_path(leader) %></td>
         <td><%= leader.group.name %></td>
         <td><%= link_to "Edit", edit_leader_path(leader) %></td>
        </tr>
