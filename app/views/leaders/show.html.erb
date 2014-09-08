@@ -5,6 +5,7 @@
     <p>Email: <%= @leader.email %></p>
     <p>Phone: <%= @leader.telephone %></p>
 
+    <%= link_to "Edit #{@leader.first_name}", edit_leader_path(@leader) %>
     <hr />
 
     <h5>Scheduled Trips:</h5>
@@ -25,7 +26,7 @@
       <p>No plans for this leader</p>
     <% else %>
       <% @plans.each do |plan| %>
-        <p><%= link_to "#{plan.unique_identifier}", plan_path(plan) %></p>
+        <p><%= link_to plan.unique_identifier, plan_path(plan) %></p>
       <% end %>
     <% end %>
       
