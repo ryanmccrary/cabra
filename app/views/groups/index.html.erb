@@ -25,7 +25,7 @@
           <td><%= group.city %></td>
           <td>
             <% group.leaders.each do |leader| %>
-              <%= link_to leader.full_name, eader_path(leader) %><br />
+              <%= link_to leader.full_name, leader_path(leader) %><br />
             <% end %>
           </td>
           <td><%= link_to "Edit", edit_group_path(group) %></td>
