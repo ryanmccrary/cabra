@@ -19,6 +19,7 @@ class LeadersController < ApplicationController
     @leader = Leader.find(params[:id])
     @leadernote = Leadernote.new
     @notes = @leader.leadernotes.all
+    @trips = @leader.group.trips.all
   end
   def edit
     @leader = Leader.find(params[:id])

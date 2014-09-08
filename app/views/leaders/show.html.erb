@@ -8,7 +8,14 @@
     <hr />
 
     <h5>Scheduled Trips:</h5>
-    <p></p>
+    
+    <% if @trips.blank? %>
+      <p>No trips scheduled</p>
+    <% else %>
+      <% @trips.each do |trip| %>
+        <p><%= link_to "#{trip.date.strftime("%B %d, %Y")} - #{trip.activity.name}", trip_path(trip) %></p>
+      <% end %>
+    <% end %>
 
     <hr />
 
