@@ -20,6 +20,7 @@ class LeadersController < ApplicationController
     @leadernote = Leadernote.new
     @notes = @leader.leadernotes.all
     @trips = @leader.group.trips.all
+    @plans = @leader.plans.all
   end
   def edit
     @leader = Leader.find(params[:id])

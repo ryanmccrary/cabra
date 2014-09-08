@@ -21,7 +21,14 @@
 
     <h5>Associated Plans:</h5>
 
-    <p></p>
+    <% if @plans.blank? %>
+      <p>No plans for this leader</p>
+    <% else %>
+      <% @plans.each do |plan| %>
+        <p><%= link_to "#{plan.unique_identifier}", plan_path(plan) %></p>
+      <% end %>
+    <% end %>
+      
   </div>
   <div class="col-md-8">
     <%= simple_form_for @leadernote do |f| %>
