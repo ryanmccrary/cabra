@@ -3,7 +3,7 @@
 <br /><br />
 
 <% @trips.each_with_index do |trip, index| %>
-<h3>Trip #<%= index + 1 %>: <%= trip.activity.name %> on <%= trip.date.strftime("%B %d, %Y") %></h3>
+<h3>Trip #<%= index + 1 %>: <%= trip.activity.name %> on <%= trip.date.strftime("%B %d, %Y") %> <% if user_signed_in? %> (<%= link_to "Edit", edit_trip_path(trip) %>) <% end %></h3>
 <div class="row well">
   <div class="col-md-3">
     <% if trip.pickup == false %>
