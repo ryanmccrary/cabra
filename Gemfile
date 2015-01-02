@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
+ruby '2.1.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.3'
+gem 'rails', '4.1.8'
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do
@@ -23,7 +24,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
 gem 'devise'
-gem 'simple_form'
+gem 'simple_form', '~> 3.0.2' 
 gem 'will_paginate', '~> 3.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
