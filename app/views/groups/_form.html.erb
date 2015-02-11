@@ -1,4 +1,4 @@
-<%= simple_form_for(@group) do |f| %>
+<%= simple_form_for(@group, html: {class: 'form-vertical' }) do |f| %>
   <% if @group.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
@@ -10,7 +10,6 @@
       </ul>
     </div>
   <% end %>
-
   <div class="input-group">
       <%= f.label 'Group Name' %>
       <%= f.text_field :name %>
@@ -33,6 +32,5 @@
   </div>
           
   <%= f.submit class: "btn" %>
-
 
 <% end %>
