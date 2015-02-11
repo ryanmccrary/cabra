@@ -24,13 +24,6 @@ ActiveRecord::Schema.define(version: 20140905223831) do
 
   add_index "activities", ["name"], name: "index_activities_on_name", unique: true, using: :btree
 
-  create_table "areas", force: true do |t|
-    t.integer  "location_id"
-    t.integer  "trip_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "groups", force: true do |t|
     t.string   "name"
     t.string   "street"
@@ -82,6 +75,8 @@ ActiveRecord::Schema.define(version: 20140905223831) do
     t.integer  "group_id"
     t.integer  "leader_id"
   end
+
+  add_index "plans", ["unique_identifier"], name: "index_plans_on_unique_identifier", using: :btree
 
   create_table "students", force: true do |t|
     t.datetime "created_at"
