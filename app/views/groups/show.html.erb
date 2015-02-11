@@ -13,32 +13,38 @@
   </div>
   <div class="col-md-8">
     <h3>Upcoming Trips:</h3>
-    <table class="table table-striped table-hover">
-      <thead>
-        <tr>
-          <td><b>Trip Date</b></td>
-          <td><b>Trip Location</b></td>
-          <td><b>Trip Activity</b></td>
-          <td><b></b></td>
-          <td><b></b></td>
-          <td><b>Plan?</b></td>
-        </tr>
-      </thead>  
-      <% @trips.each do |trip| %>
-        <tr>
-          <td><%= trip.date.strftime("%b %d, %Y") %></td>
-          <td><%= trip.location.name %></td>
-          <td><%= trip.activity.name %></td>
-          <td><%= link_to "View", trip_path(trip) %></td>
-          <td><%= link_to "Edit", edit_trip_path(trip) %></td>
-          <td>
-            <% if trip.plan.nil? %>
-              &nbsp;
-            <% else %>
-              <%= link_to plan_path(trip.plan) do %><span class="glyphicon glyphicon-ok"><% end %></span>
-            <% end %>
-          </td>
-        </tr>
+      <% if @trips.empty? %>
+        <%= @group.name %> has no scheduled trips currently
+      <% else %>
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <td><b>Trip Date</b></td>
+              <td><b>Trip Location</b></td>
+              <td><b>Trip Activity</b></td>
+              <td><b></b></td>
+              <td><b></b></td>
+              <td><b>Plan?</b></td>
+              <td><b></b></td>
+            </tr>
+          </thead>  
+          <% @trips.each do |trip| %>
+            <tr>
+              <td><%= trip.date.strftime("%b %d, %Y") %></td>
+              <td><%= trip.location.name %></td>
+              <td><%= trip.activity.name %></td>
+              <td><%= link_to "View", trip_path(trip) %></td>
+              <td><%= link_to "Edit", edit_trip_path(trip) %></td>
+              <td><%= link_to 'delete', url_for(action: :destroy, id: trip.id),method: :delete, data: {confirm: "Are you sure?"} %></td>
+              <td>
+                <% if trip.plan.nil? %>
+                  &nbsp;
+                <% else %>
+                  <%= link_to plan_path(trip.plan) do %><span class="glyphicon glyphicon-ok"><% end %></span>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
       <% end %>
-    </table>
   </div>

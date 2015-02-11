@@ -17,7 +17,7 @@ class GroupsController < ApplicationController
   end
   def show
     @group = Group.find(params[:id])
-    @trips = @group.trips.all
+    @trips = @group.trips.future
   end
   def edit
     @group = Group.find(params[:id])
