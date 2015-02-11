@@ -38,6 +38,11 @@ class TripsController < ApplicationController
       render "edit"
     end
   end
+  def destroy
+    @trip = Trip.find(params[:id])
+    @trip.destroy
+    redirect_to trips_path, notice: "Trip deleted."
+  end
 
     private
 
