@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Cabra</title>
+  <title>GOAT - Alpha</title>
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -35,7 +35,7 @@
                     <li><a href="#">Manage Users</a></li>
                     <li><%= link_to "Manage Locations", locations_path %></li>
                     <li><%= link_to "Add activity", activities_path %></li>
-                    <li><a href="#">Sign out</a></li>
+                    <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
                   </ul>
                 </li>
               </ul>
