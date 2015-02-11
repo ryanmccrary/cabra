@@ -13,8 +13,7 @@
 
   <div class="row">
     <div class="col-md-4">
-      <%= f.label "Number of participants" %><br />
-      <%= f.number_field :scheduled_participants %><br /><br />
+      <%= f.input :scheduled_participants %><br /><br />
     </div>
       <div class="col-md-4">
       <%= f.input :location_id, collection: Location.all, label_method: :name %>

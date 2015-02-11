@@ -11,24 +11,19 @@
     </div>
   <% end %>
   <div class="input-group">
-      <%= f.label 'Group Name' %>
-      <%= f.text_field :name %>
+      <%= f.input :name %>
   </div>
 
   <div class="input-group">
-      <%= f.label 'Street' %>
-      <%= f.text_field :street %>
+      <%= f.input :street %>
   </div>
 
   <div class="input-group">
-    <%= f.label 'City' %>
-    <%= f.text_field :city %>
+    <%= f.input :city %>
   
-    <%= f.label 'State' %>
-    <%= f.text_field :state %>
-  
-    <%= f.label 'Zip' %>
-    <%= f.text_field :zip %>
+    <%= f.input :state %>
+
+    <%= f.input :zip %>
   </div>
           
   <%= f.submit class: "btn" %>
