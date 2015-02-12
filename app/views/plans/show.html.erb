@@ -12,7 +12,7 @@
       <h4>Pickup at <%= trip.group.name %></h4>
     <% end %>
     <hr />
-    <h4><%= Time.parse(trip.pickup_time).strftime("%l:%M %p") %></h4>
+    <h4><%= string_to_time(trip.pickup_time) %></h4>
       <h4></h4>
     <br /><br />
     <% if trip.pickup == false %>
@@ -21,7 +21,7 @@
       <h4>Return</h4>
     <% end %>
     <hr />
-    <h4><%= Time.parse(trip.dropoff_time).strftime("%l:%M %p") %></h4>
+    <h4><%= string_to_time(trip.dropoff_time) %></h4>
   </div>
   <div class="col-md-3">
     <h4># of participants</h4>
