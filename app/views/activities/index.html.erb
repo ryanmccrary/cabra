@@ -11,6 +11,7 @@
     <% @activities.each do |activity| %>
       <tr>
        <td><%= activity.name %></td>
+       <td><%= activity.whattobring %></td>
        <td><%= link_to "Edit", edit_activity_path(activity) %></td>
       </tr>
     <% end %>
