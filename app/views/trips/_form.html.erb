@@ -1,4 +1,4 @@
-<%= simple_form_for(@trip) do |f| %>
+<%= simple_form_for(@trip, html: { class: 'form-inline' }) do |f| %>
   <% if @trip.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
@@ -16,14 +16,15 @@
       <%= f.input :scheduled_participants %><br /><br />
     </div>
       <div class="col-md-4">
-      <%= f.input :location_id, collection: Location.all, label_method: :name %>
+      <%= f.input :location_id, collection: Location.all, label_method: :name, html: { class: "form-control"} %>
+      <br /><br />
 
       <%= f.input :activity_id, collection: Activity.all, label_method: :name %>
+      <br /><br />
 
+      <%= f.input :pickup, as: :boolean, boolean_style: :inline %>
 
-      <%= f.input :pickup, as: :boolean %>
-
-      <%= f.input :lunch, as: :boolean %>
+      <%= f.input :lunch, as: :boolean, boolean_style: :inline %>
     </div>
     <div class="col-md-4">
       <%= f.label "Trip date" %> <br />
@@ -40,7 +41,8 @@
     <% if params[:group].present? %>
       <%= f.hidden_field :group_id, value: @group.id %>
     <% end %>
-    <%= f.submit class: "btn" %>
-
+    <center>
+      <%= f.submit class: "btn btn-primary" %>
+    </center>
   <% end %>
 
