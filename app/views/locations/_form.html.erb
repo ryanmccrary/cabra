@@ -1,37 +1,38 @@
-<%= simple_form_for(@location) do |f| %>
-  <% if @location.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
+<div class="row">  
+  <%= simple_form_for(@location, html: { class: "form-horizontal" }) do |f| %>
+    <% if @location.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
 
-      <ul>
-      <% @location.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @location.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="col-md-4">
+      <p>Please complete <b>all</b> information.</p>
+
+      <p>This address information is used to create maps and provide directions to groups, so accurate directions are important.</p>
     </div>
+
+    <div class="col-md-4">
+   
+      <%= f.input :name %>
+  
+      <%= f.input :street %>
+   
+      <%= f.input :city %>
+    
+      <%= f.input :state %>
+
+      <%= f.input :zip %>
+
+      <%= f.submit class: "btn btn-primary" %>
+
   <% end %>
+    </div>
 
-  <div class="input-group">
-    <%= f.label 'Location Name' %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="input-group">
-    <%= f.label 'Street' %>
-    <%= f.text_field :street %>
-  </div>
-
-  <div class="input-group">
-    <%= f.label 'City' %>
-    <%= f.text_field :city %>
-  
-    <%= f.label "State" %>
-    <%= f.text_field :state %>
-  
-    <%= f.label "Zip" %>
-    <%= f.text_field :zip %>
-  </div>
-
-  <%= f.submit class: "btn" %>
-
-<% end %>
+</div>
