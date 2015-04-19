@@ -24,7 +24,7 @@ class PlansController < ApplicationController
   end
   def show
     @plan = Plan.find_by_unique_identifier(params[:id])
-    @trips = @plan.trips
+    @trips = @plan.trips.order('date ASC')
   end
   def edit
     @plan = Plan.find_by_unique_identifier(params[:id])
