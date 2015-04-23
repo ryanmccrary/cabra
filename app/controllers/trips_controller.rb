@@ -2,8 +2,8 @@ class TripsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @trips = Trip.future.paginate(page: params[:page], per_page: 20)
-    @trips_past = Trip.past.paginate(page: params[:page], per_page: 20)
+    @trips = Trip.future.paginate(page: params[:page], per_page: 20).order('date ASC')
+    @trips_past = Trip.past.paginate(page: params[:page], per_page: 20).order('date ASC')
     @groups = Group.all
   end
   def new
