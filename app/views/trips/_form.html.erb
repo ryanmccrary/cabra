@@ -28,7 +28,7 @@
     </div>
     <div class="col-md-4">
       <%= f.label "Trip date" %> <br />
-      <%= f.date_field :date %> <br /><br />
+      <%= f.date_field :date, :id => 'datepicker' %> <br /><br />
 
       <%= f.label "Pickup time" %><br />
       <%= f.time_field :pickup_time %><br /><br />
@@ -36,7 +36,7 @@
       <%= f.label "Dropoff time" %><br />
       <%= f.time_field :dropoff_time %><br /><br />
     </div>
-  </div>  
+  </div>
 
     <% if params[:group].present? %>
       <%= f.hidden_field :group_id, value: @group.id %>
@@ -45,4 +45,3 @@
       <%= f.submit class: "btn btn-primary" %>
     </center>
   <% end %>
-

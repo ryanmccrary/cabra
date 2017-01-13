@@ -16,3 +16,10 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+//= require jquery-ui/widgets/datepicker
+
+
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
