@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20150225201708) do
   enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
-    t.string   "name",        limit: 255
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "whattobring"
@@ -26,11 +26,11 @@ ActiveRecord::Schema.define(version: 20150225201708) do
   add_index "activities", ["name"], name: "index_activities_on_name", unique: true, using: :btree
 
   create_table "groups", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "street",     limit: 255
-    t.string   "city",       limit: 255
-    t.string   "state",      limit: 255
-    t.string   "zip",        limit: 255
+    t.string   "name"
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -48,29 +48,29 @@ ActiveRecord::Schema.define(version: 20150225201708) do
   add_index "leadernotes", ["leader_id"], name: "index_leadernotes_on_leader_id", using: :btree
 
   create_table "leaders", force: :cascade do |t|
-    t.string   "first_name", limit: 255
-    t.string   "last_name",  limit: 255
-    t.string   "email",      limit: 255
-    t.string   "telephone",  limit: 255
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "telephone"
     t.integer  "group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "locations", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "street",     limit: 255
-    t.string   "city",       limit: 255
-    t.string   "state",      limit: 255
-    t.string   "zip",        limit: 255
+    t.string   "name"
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
     t.integer  "type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "plans", force: :cascade do |t|
-    t.string   "unique_identifier", limit: 255
-    t.boolean  "plan_sent",                     default: false
+    t.string   "unique_identifier"
+    t.boolean  "plan_sent",         default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "group_id"
@@ -91,8 +91,8 @@ ActiveRecord::Schema.define(version: 20150225201708) do
     t.integer  "scheduled_participants"
     t.integer  "actual_participants"
     t.integer  "plan_id"
-    t.string   "pickup_time",            limit: 255
-    t.string   "dropoff_time",           limit: 255
+    t.string   "pickup_time"
+    t.string   "dropoff_time"
     t.datetime "date"
     t.boolean  "pickup"
     t.datetime "created_at"
@@ -103,16 +103,16 @@ ActiveRecord::Schema.define(version: 20150225201708) do
   add_index "trips", ["group_id"], name: "index_trips_on_group_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
