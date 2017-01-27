@@ -17,7 +17,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
 gem 'devise'
-gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form', branch: 'master'
+gem 'cancancan'
+gem 'simple_form'
 gem 'will_paginate', '~> 3.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

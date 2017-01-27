@@ -21,7 +21,7 @@
           <td><b></b></td>
           <td><b>Plan?</b></td>
         </tr>
-      </thead>  
+      </thead>
       <% @trips_past.each do |trip| %>
         <tr>
           <td><%= trip.date.strftime("%b %d, %Y") %></td>
@@ -34,7 +34,7 @@
       <% end %>
     </table>
     <center><%= will_paginate @trips_past %></center>
-    
+
   <% else %>
 
     <!-- future trips (default) -->
@@ -54,7 +54,7 @@
             <td><b>Plan?</b></td>
             <td><b></b></td>
           </tr>
-        </thead>  
+        </thead>
         <% @trips.each do |trip| %>
           <tr>
             <td><%= trip.date.strftime("%b %d, %Y") %></td>
@@ -81,7 +81,7 @@
 
 <% end %>
 
-    
+
 <div class="modal fade trip-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-content">
     <div class="modal-dialog modal-sm">
