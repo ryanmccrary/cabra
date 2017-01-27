@@ -19,5 +19,9 @@ class User < ActiveRecord::Base
     end
   end
 
+  def has_role?(role)
+    roles.include?(role)
+  end
+
   has_many :leadernotes
 end
