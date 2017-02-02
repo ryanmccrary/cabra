@@ -13,6 +13,7 @@ Cabra::Application.routes.draw do
   resources :locations
   resources :trips
   resources :activities
+  resources :users
   resources :plans do
     member do
       post 'add_trips'
@@ -20,7 +21,7 @@ Cabra::Application.routes.draw do
   end
 
   root to: "trips#index"
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
