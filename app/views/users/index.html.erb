@@ -1,0 +1,6 @@
+Userz!
+
+<% @users.each do |user| %>
+  <%= user.email %>
+  <%= user.roles.last.to_s %>
+<% end %>
