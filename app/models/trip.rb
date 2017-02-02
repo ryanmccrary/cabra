@@ -4,6 +4,8 @@ class Trip < ActiveRecord::Base
   belongs_to :location
   belongs_to :activity
 
+  has_one :report
+
   scope :future, -> { where("date > ?", Date.today) }
 
   scope :past, -> { where("date <= ?", Date.today) }
