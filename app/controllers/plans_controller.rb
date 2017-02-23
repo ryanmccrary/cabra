@@ -4,7 +4,7 @@ class PlansController < ApplicationController
   layout :public_layout
 
   def index
-    @plans = Plan.all
+    @plans = Plan.all.order('created_at ASC')
   end
   def new
     @plan = Plan.new
@@ -47,8 +47,8 @@ class PlansController < ApplicationController
       @trips.each do |trip|
         trip.update_attributes(plan_id: @plan.id)
       end
-      redirect_to plans_path, notice: "Trips added to #{@plan.leader.full_name} plan for #{@plan.group.name} (Plan id: #{@plan.unique_identifier})"    
-    else 
+      redirect_to plans_path, notice: "Trips added to #{@plan.leader.full_name} plan for #{@plan.group.name} (Plan id: #{@plan.unique_identifier})"
+    else
       redirect_to plans_path, notice: "No trips added to #{@plan.leader.full_name} plan for #{@plan.group.name} (Plan id: #{@plan.unique_identifier})"
     end
   end
@@ -61,10 +61,10 @@ class PlansController < ApplicationController
     private
 
     def plan_params
-      params.require(:plan).permit(:unique_identifier, :group_id, 
+      params.require(:plan).permit(:unique_identifier, :group_id,
                                   :leader_id, :plan_sent)
     end
-    
+
     def public_layout
       if user_signed_in?
         "application"
