@@ -5,7 +5,7 @@ class TripsController < ApplicationController
   def index
     @trips = Trip.future.paginate(page: params[:page], per_page: 20).order('date ASC')
     @trips_past = Trip.past.paginate(page: params[:page], per_page: 20).order('date DESC')
-    @groups = Group.all
+    @groups = Group.all.order('name ASC')
   end
   def new
     if params[:group]
