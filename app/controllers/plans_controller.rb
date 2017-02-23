@@ -4,7 +4,7 @@ class PlansController < ApplicationController
   layout :public_layout
 
   def index
-    @plans = Plan.all.order('created_at ASC')
+    @plans = Plan.all.order('created_at DESC')
   end
   def new
     @plan = Plan.new
