@@ -11,10 +11,10 @@
     </div>
   <% end %>
 
-  <%= f.input :group_id, collection: Group.all, label_method: :name %>
+  <%= f.input :group_id, collection: Group.all.order('name ASC'), label_method: :name %>
 
-  <%= f.input :leader_id, collection: Leader.all, label_method: :full_name %>
-          
+  <%= f.input :leader_id, collection: Leader.all.order('first_name ASC'), label_method: :full_name %>
+
   <%= f.submit class: "btn" %>
 
 <% end %>
