@@ -35,6 +35,32 @@
     </table>
     <center><%= will_paginate @trips_past %></center>
 
+    <% elsif params[:type] == "need_report" %>
+      <!-- past trips without reports -->
+      <h4>Trips that need reports</h4>
+      <%= link_to "View Upcoming Trips", trips_path %>
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <td><b>Trip Date</b></td>
+            <td><b>Group Name</b></td>
+            <td><b>Trip Location</b></td>
+            <td><b></b></td>
+            <td><b>Report</b></td>
+          </tr>
+        </thead>
+        <% @trips_need.each do |trip| %>
+          <tr>
+            <td><%= trip.date.strftime("%b %d, %Y") %></td>
+            <td><%= trip.group.name %></td>
+            <td><%= trip.location.name %></td>
+            <td><%= link_to "View Trip", trip_path(trip) %></td>
+            <td>Make a report!</td>
+          </tr>
+        <% end %>
+      </table>
+      <center><%= will_paginate @trips_past %></center>
+
   <% else %>
 
     <!-- future trips (default) -->
