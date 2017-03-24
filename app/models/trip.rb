@@ -10,7 +10,7 @@ class Trip < ActiveRecord::Base
 
   scope :past, -> { where("date <= ?", Date.today) }
 
-  scope :need_report, -> { where(report_id: nil) }
+  scope :need_report, -> { where("report_id IS ?", nil) }
 
   scope :adding_trips, -> { where("plan_id IS ?", nil) }
 
