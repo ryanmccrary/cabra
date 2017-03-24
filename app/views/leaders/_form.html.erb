@@ -1,4 +1,4 @@
-<%= simple_form_for(@leader) do |f| %>
+<%= simple_form_for(@leader, html: {class: 'form-vertical' }) do |f| %>
   <% if @leader.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@leader.errors.count, "error") %> prohibited this leader from being saved:</h2>
@@ -12,28 +12,18 @@
   <% end %>
 
   <div class="input-group">
-    <%= f.label 'First Name' %>
-    <%= f.text_field :first_name %>
+    <%= f.input :first_name %>
+
+    <%= f.input :last_name %>
+
+    <%= f.input :email %>
+
+    <%= f.input :telephone %>
+
+    <%= f.label 'Group Association' %>
+    <%= f.input :group_id, collection: Group.all, label_method: :name %>
   </div>
 
-  <div class="input-group">
-    <%= f.label 'Last Name' %>
-    <%= f.text_field :last_name %>
-  </div>
-
-  <div class="input-group">
-    <%= f.label 'Email address' %>
-    <%= f.text_field :email %>
-  </div>
-
-  <div class="input-group">
-    <%= f.label 'Phone number' %>
-    <%= f.text_field :telephone %>
-  </div>
-
-  <%= f.label 'Group Association' %>
-  <%= f.input :group_id, collection: Group.all, label_method: :name %>
-          
   <%= f.submit class: "btn" %>
 
 <% end %>
