@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @groups = Group.all
+    @groups = Group.all.order('name ASC')
   end
   def new
     @group = Group.new
@@ -35,7 +35,7 @@ class GroupsController < ApplicationController
     private
 
     def group_params
-      params.require(:group).permit(:name, :street, :city, 
+      params.require(:group).permit(:name, :street, :city,
                                     :state, :zip)
     end
 end
