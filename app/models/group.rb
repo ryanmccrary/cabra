@@ -4,4 +4,6 @@ class Group < ActiveRecord::Base
   has_many :leaders
   has_many :students
 
+  validates :name, uniqueness: true
+
 end
