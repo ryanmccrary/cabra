@@ -23,5 +23,5 @@ class User < ActiveRecord::Base
     roles.include?(role)
   end
 
-  has_many :leadernotes
+  has_many :leadernotes, :reports
 end
