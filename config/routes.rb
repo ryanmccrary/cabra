@@ -14,6 +14,7 @@ Cabra::Application.routes.draw do
   resources :trips
   resources :activities
   resources :users
+  resources :reports
   resources :plans do
     member do
       post 'add_trips'
