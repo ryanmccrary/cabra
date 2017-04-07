@@ -1,0 +1,44 @@
+<%= simple_form_for(@report) do |f| %>
+  <% if @report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@report.errors.count, "error") %> prohibited this report from being filed:</h2>
+
+      <ul>
+      <% @report.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="well">
+        <h3><%= @trip.activity.name %> Trip</h3>
+
+        <%= @trip.date.strftime("%b %d, %Y") %>
+
+        <%= @trip.location.name %>
+      </div>
+    </div>
+      <div class="input-group col-md-6">
+        Filing report as: <b><%= current_user.email %></b><br /><br />
+        <%= f.input :female %> <br /><br />
+        <%= f.input :male %> <br /><br />
+        <%= f.input :additional_guides %><br /><br />
+        <%= f.input :weather %><br /><br />
+        <%= f.input :incidents %><br /><br />
+        <%= f.input :incident_needed, as: :boolean %>
+
+        <%= f.hidden_field :trip_id, value: params[:trip] %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+
+
+
+        <center>
+          <%= f.submit class: "btn btn-primary" %>
+        </center>
+    </div>
+  </div>
+
+  <% end %>
