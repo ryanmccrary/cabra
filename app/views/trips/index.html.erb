@@ -25,7 +25,7 @@
       <% @trips_past.each do |trip| %>
         <tr>
           <td><%= trip.date.strftime("%b %d, %Y") %></td>
-          
+          <td><%= trip.group.name %></td>
           <td>n/a</td>
           <td><span class="glyphicon glyphicon-ok"></span></td>
         </tr>
