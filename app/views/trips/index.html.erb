@@ -24,12 +24,12 @@
       </thead>
       <% @trips_past.each do |trip| %>
         <tr>
-          <td><%= trip.date.strftime("%b %d, %Y") %></td>
+          <!--<td><%= trip.date.strftime("%b %d, %Y") %></td>
           <td><%= trip.group.name %></td>
           <td><%= trip.location.name %></td>
           <td><%= link_to "View", trip_path(trip) %></td>
           <td>n/a</td>
-          <td><span class="glyphicon glyphicon-ok"></span></td>
+          <td><span class="glyphicon glyphicon-ok"></span></td>-->
         </tr>
       <% end %>
     </table>
@@ -89,7 +89,11 @@
             <td><%= link_to "View", trip_path(trip) %></td>
             <td><%= link_to "Edit", edit_trip_path(trip) %></td>
             <td>
-
+              <% if trip.plan.nil? %>
+                &nbsp;
+              <% else %>
+                <%= link_to plan_path(trip.plan) do %><span class="glyphicon glyphicon-ok"><% end %></span>
+              <% end %>
             </td>
             <td>
               <%= link_to 'delete', url_for(action: :destroy, id: trip.id),method: :delete, data: {confirm: "Are you sure?"} %>
