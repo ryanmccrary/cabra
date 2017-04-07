@@ -1,6 +1,12 @@
 <button class="btn btn-primary" data-toggle="modal" data-target=".trip-modal">Create new trip</button>
 <br /><br />
 
+<% if current_user.has_role? :reporter %>
+  Reporterrrr
+  <%= params[:type] %>
+<% end %>
+
+
 <% if @trips.empty? && @trips_past.empty? %>
 
   <h1>You haven't created any trips yet, go select a group to make a trip</h1>
@@ -55,7 +61,7 @@
             <td><%= trip.group.name %></td>
             <td><%= trip.location.name %></td>
             <td><%= link_to "View Trip", trip_path(trip) %></td>
-            <td>Make a report!</td>
+            <td><%= link_to "Create Report", new_report_path(:trip => trip) %></td>
           </tr>
         <% end %>
       </table>
