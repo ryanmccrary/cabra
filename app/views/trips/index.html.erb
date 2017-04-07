@@ -1,12 +1,6 @@
 <button class="btn btn-primary" data-toggle="modal" data-target=".trip-modal">Create new trip</button>
 <br /><br />
 
-<% if current_user.has_role? :reporter %>
-  Reporterrrr
-  <%= params[:type] %>
-<% end %>
-
-
 <% if @trips.empty? && @trips_past.empty? %>
 
   <h1>You haven't created any trips yet, go select a group to make a trip</h1>
@@ -95,7 +89,7 @@
             <td><%= link_to "View", trip_path(trip) %></td>
             <td><%= link_to "Edit", edit_trip_path(trip) %></td>
             <td>
-              
+
             </td>
             <td>
               <%= link_to 'delete', url_for(action: :destroy, id: trip.id),method: :delete, data: {confirm: "Are you sure?"} %>
