@@ -8,6 +8,7 @@ class Ability
     else
       cannot :create, Trip
       can :read, Trip
+      can :create, Report
 
     end
 
