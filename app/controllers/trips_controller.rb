@@ -3,9 +3,12 @@ class TripsController < ApplicationController
   load_and_authorize_resource
 
   def index
+    if current_user.roles_mask === 4
+      params[:type] = "need_report"
+    end
     @trips = Trip.future.paginate(page: params[:page], per_page: 20).order('date ASC')
     @trips_past = Trip.past.paginate(page: params[:page], per_page: 20).order('date DESC')
-    @trips_need = Trip.past.need_report.paginate(page: params[:page], per_page: 20).order('date DESC')
+    @trips_need = Trip.past.paginate(page: params[:page], per_page: 20).order('date DESC').need_report
     @groups = Group.all.order('name ASC')
   end
   def new
