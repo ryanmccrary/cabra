@@ -6,7 +6,12 @@ class ReportsController < ApplicationController
     @reports = Report.all
   end
   def new
-    @report = Report.new
+    if params[:trip].present?
+      @report = Report.new
+      @trip = Trip.find(params[:trip])
+    else
+      redirect_to trips_path, notice: "You must select a trip to make a report!"
+    end
   end
   def create
     @report = Report.new(report_params)
