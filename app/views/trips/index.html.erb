@@ -97,9 +97,9 @@
             <td>
               <% if trip.plan.nil? %>
                 &nbsp;
-              <% else %>
+              <!--<% else %>
                 <%= link_to plan_path(trip.plan) do %><span class="glyphicon glyphicon-ok"><% end %></span>
-              <% end %>
+              <% end %>-->
             </td>
             <td>
               <%= link_to 'delete', url_for(action: :destroy, id: trip.id),method: :delete, data: {confirm: "Are you sure?"} %>
