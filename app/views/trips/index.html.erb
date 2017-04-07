@@ -22,7 +22,14 @@
           <td><b>Plan?</b></td>
         </tr>
       </thead>
-      <%= @trips_past %>
+      <% @trips_past.each do |trip| %>
+        <tr>
+          <td><%= trip.date.strftime("%b %d, %Y") %></td>
+          
+          <td>n/a</td>
+          <td><span class="glyphicon glyphicon-ok"></span></td>
+        </tr>
+      <% end %>
 
     <% elsif params[:type] == "need_report" %>
       <!-- past trips without reports -->
