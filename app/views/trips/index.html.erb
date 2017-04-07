@@ -26,10 +26,14 @@
         <tr>
           <td><%= trip.date.strftime("%b %d, %Y") %></td>
           <td><%= trip.group.name %></td>
+          <td><%= trip.location.name %></td>
+          <td><%= link_to "View", trip_path(trip) %></td>
           <td>n/a</td>
           <td><span class="glyphicon glyphicon-ok"></span></td>
         </tr>
       <% end %>
+      </table>
+      <center><%= will_paginate @trips_past %></center>
 
     <% elsif params[:type] == "need_report" %>
       <!-- past trips without reports -->
