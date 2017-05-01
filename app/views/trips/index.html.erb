@@ -18,8 +18,8 @@
           <td><b>Group Name</b></td>
           <td><b>Trip Location</b></td>
           <td><b></b></td>
-          <td><b></b></td>
-          <td><b>Plan?</b></td>
+          <td align="center"><b>Plan?</b></td>
+          <td align="center"><b>Report?</b></td>
         </tr>
       </thead>
       <% @trips_past.each do |trip| %>
@@ -28,8 +28,18 @@
           <td><%= trip.group.name %></td>
           <td><%= trip.location.name %></td>
           <td><%= link_to "View", trip_path(trip) %></td>
-          <td>n/a</td>
-          <td><span class="glyphicon glyphicon-ok"></span></td>
+          <td align="center">
+            <% if trip.report.nil? %>
+              <span class="glyphicon glyphicon-ok"></span>
+            <% end %>
+          </td>
+          <td align="center">
+            <% if trip.report.nil? %>
+              <span class="glyphicon glyphicon-exclamation-sign red">
+            <% else %>
+              <span class="glyphicon glyphicon-ok-circle green">
+            <% end %>
+          </td>
         </tr>
       <% end %>
       </table>
