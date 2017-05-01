@@ -8,7 +8,7 @@ class TripsController < ApplicationController
     end
     @trips = Trip.future.paginate(page: params[:page], per_page: 20).order('date ASC')
     @trips_past = Trip.past.paginate(page: params[:page], per_page: 20).order('date DESC')
-    @trips_need = Trip.past.paginate(page: params[:page], per_page: 20).order('date DESC').need_report
+    @trips_need = Trip.year.paginate(page: params[:page], per_page: 20).order('date DESC').need_report
     @groups = Group.all.order('name ASC')
   end
   def new

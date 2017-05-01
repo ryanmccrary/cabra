@@ -10,6 +10,8 @@ class Trip < ActiveRecord::Base
 
   scope :past, -> { where("date <= ?", Date.today) }
 
+  scope :year, -> { where("extract(year from date) = ?", Date.today.year) }
+
   scope :need_report, -> { select { |trip| trip.report.blank? } }
 
   scope :adding_trips, -> { where("plan_id IS ?", nil) }
