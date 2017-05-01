@@ -22,6 +22,7 @@
           <td align="center"><b>Report?</b></td>
         </tr>
       </thead>
+
       <% @trips_past.each do |trip| %>
         <tr>
           <td><%= trip.date.strftime("%b %d, %Y") %></td>
@@ -46,6 +47,10 @@
       <center><%= will_paginate @trips_past %></center>
 
     <% elsif params[:type] == "need_report" %>
+
+    <% if @trips_need.empty? %>
+      <h1>All done here, good job kiddos!</h1>
+    <% else %>
       <!-- past trips without reports -->
       <h4>Trips that need reports</h4>
       <%= link_to "View Upcoming Trips", trips_path %>
@@ -70,6 +75,7 @@
         <% end %>
       </table>
       <center><%= will_paginate @trips_past %></center>
+    <% end %><!-- if @trips_past empty? -->
 
   <% else %>
 
