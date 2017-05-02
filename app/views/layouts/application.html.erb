@@ -24,19 +24,21 @@
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="<%= is_active?(leaders_path) %>"><%= link_to "Leaders", leaders_path %></li>
-                <li class="<%= is_active?(groups_path) %>"><%= link_to "Groups", groups_path %></li>
-                <li class="<%= is_active?(trips_path) %>"><%= link_to "Trips", trips_path %></li>
-                <li class="<%= is_active?(plans_path) %>"><%= link_to "Plans", plans_path %></li>
+                <% if current_user && current_user.has_role?(:admin) %>
+                  <li class="<%= is_active?(leaders_path) %>"><%= link_to "Leaders", leaders_path %></li>
+                  <li class="<%= is_active?(groups_path) %>"><%= link_to "Groups", groups_path %></li>
+                  <li class="<%= is_active?(trips_path) %>"><%= link_to "Trips", trips_path %></li>
+                  <li class="<%= is_active?(plans_path) %>"><%= link_to "Plans", plans_path %></li>
+                <% end %>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li><a href="#">User</a></li>
                     <% if current_user && current_user.has_role?(:admin) %>
                       <li><%= link_to "Manage Users", users_path %></li>
+                      <li><%= link_to "Manage Locations", locations_path %></li>
+                      <li><%= link_to "Add activity", activities_path %></li>
                     <% end %>
-                    <li><%= link_to "Manage Locations", locations_path %></li>
-                    <li><%= link_to "Add activity", activities_path %></li>
                     <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
                   </ul>
                 </li>
