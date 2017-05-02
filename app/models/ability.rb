@@ -7,6 +7,7 @@ class Ability
       can :manage, :all
     else
       cannot :create, Trip
+      cannot :read, Plan
       can :read, Trip
       can :create, Report
 
