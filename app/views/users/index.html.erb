@@ -1,6 +1,11 @@
-Userz!
+<h3>All current users</h3>
 
-<% @users.each do |user| %>
-  <%= user.email %>
-  <%= user.roles.last.to_s %>
-<% end %>
+    <table class="table table-striped">
+      <% @users.each do |user| %>
+        <tr>
+        <td><%= user.email %></td>
+        <td><%= user.roles.last.to_s %></td>
+        <td><%= link_to "Edit", edit_user_path(user) %></td>
+       </tr>
+      <% end %>
+    </table>
