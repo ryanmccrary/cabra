@@ -1,5 +1,6 @@
 class PlansController < ApplicationController
   before_filter :authenticate_user!, except: [:show]
+  load_and_authorize_resource
 
   layout :public_layout
 
