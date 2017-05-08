@@ -1,6 +1,6 @@
 class PlansController < ApplicationController
   before_filter :authenticate_user!, except: [:show]
-  load_and_authorize_resource
+
 
   layout :public_layout
 
@@ -24,6 +24,7 @@ class PlansController < ApplicationController
     end
   end
   def show
+    binding.pry
     @plan = Plan.find_by_unique_identifier(params[:id])
     @trips = @plan.trips.order('date ASC')
   end

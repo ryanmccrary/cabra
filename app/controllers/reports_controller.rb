@@ -23,6 +23,7 @@ class ReportsController < ApplicationController
   end
   def show
     @report = Report.find(params[:id])
+    @trip = Trip.find(@report.trip)
   end
 
   private
