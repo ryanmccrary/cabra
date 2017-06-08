@@ -6,6 +6,9 @@ class TripsController < ApplicationController
     if current_user.roles_mask === 4
       params[:type] = "need_report"
     end
+    if current_user.roles_mask === nil
+      params[:type] = "need_report"
+    end
     @trips = Trip.future.paginate(page: params[:page], per_page: 20).order('date ASC')
     @trips_past = Trip.past.paginate(page: params[:page], per_page: 20).order('date DESC')
     @trips_need = Trip.year.past.paginate(page: params[:page], per_page: 20).order('date DESC').need_report
