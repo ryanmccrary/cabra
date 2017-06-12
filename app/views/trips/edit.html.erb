@@ -1,3 +1,10 @@
 Edit Trip
 
 <%= render 'form' %>
+
+
+  <br /><br /><br /><br /><br /><br />
+
+  <div class="alert alert-danger col-md-4 col-md-offset-4">
+    <b><%= link_to 'Click here to delete this trip (this cannot be undone)', url_for(action: :destroy, id: @trip.id),method: :delete, data: {confirm: "Are you sure? This cannot be undone"} %></b>
+  </div>
