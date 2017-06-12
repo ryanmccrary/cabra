@@ -36,7 +36,7 @@
           </td>
           <td align="center">
             <% if trip.report.nil? %>
-              <span class="glyphicon glyphicon-exclamation-sign red">
+              <span class="glyphicon glyphicon-exclamation-sign red"> </span><%= link_to "Report", new_report_path(:trip => trip) %>
             <% else %>
               <span class="glyphicon glyphicon-ok-circle green">
             <% end %>
