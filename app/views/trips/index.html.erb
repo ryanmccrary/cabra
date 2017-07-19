@@ -18,6 +18,7 @@
           <td><b>Group Name</b></td>
           <td><b>Trip Location</b></td>
           <td><b></b></td>
+          <td></td>
           <td align="center"><b>Plan?</b></td>
           <td align="center"><b>Report?</b></td>
         </tr>
@@ -29,6 +30,7 @@
           <td><%= trip.group.name %></td>
           <td><%= trip.location.name %></td>
           <td><%= link_to "View", trip_path(trip) %></td>
+          <td><%= link_to "Edit", edit_trip_path(trip) %></td>
           <td align="center">
             <% if trip.report.nil? %>
               <span class="glyphicon glyphicon-ok"></span>
