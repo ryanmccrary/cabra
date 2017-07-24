@@ -4,6 +4,8 @@ class ReportsController < ApplicationController
 
   def index
     @reports = Report.all
+    @male = Report.all.sum(:male)
+    @female = Report.all.sum(:female)
   end
   def new
     if params[:trip].present?
