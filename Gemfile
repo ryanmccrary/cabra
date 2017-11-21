@@ -41,6 +41,7 @@ group :development, :test do
  gem 'pry-doc', '~> 0.4.0'                # Documentation plugin for Pry
  gem 'pry-rails', '~> 0.2.0'              # Pry rails integration
  gem 'pry-remote', '~> 0.1.7'             # "Remotely" pry into code execution
+ gem 'rspec-rails', '~> 3.6'              # For tests
 end
 
 group :doc do
