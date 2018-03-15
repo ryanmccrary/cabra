@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 1.2'
 
 group :development, :test do
  gem 'better_errors'
+ gem 'dotenv-rails'
  gem 'pry', '~> 0.9.0'                    # Pry > IRB
  gem 'pry-doc', '~> 0.4.0'                # Documentation plugin for Pry
  gem 'pry-rails', '~> 0.2.0'              # Pry rails integration
