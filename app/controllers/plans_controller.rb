@@ -48,7 +48,7 @@ class PlansController < ApplicationController
       @trips.each do |trip|
         trip.update_attributes(plan_id: @plan.id)
       end
-      redirect_to plans_path, notice: "Trips added to #{@plan.leader.full_name} plan for #{@plan.group.name} (Plan id: #{@plan.unique_identifier})"
+      redirect_to plan_path(@plan), notice: "Trips added to #{@plan.leader.full_name} plan for #{@plan.group.name} (Plan id: #{@plan.unique_identifier})"
     else
       redirect_to plans_path, notice: "No trips added to #{@plan.leader.full_name} plan for #{@plan.group.name} (Plan id: #{@plan.unique_identifier})"
     end
