@@ -22,6 +22,7 @@
 
 //= require jquery.timepicker.js
 
+document.addEventListener("turbolinks:load", function() {
 
   $( function() {
     $( "#datepicker" ).datepicker({
@@ -31,3 +32,4 @@
     $('.time-input').timepicker();
   } );
 
+})
