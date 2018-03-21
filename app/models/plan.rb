@@ -1,7 +1,7 @@
 class Plan < ActiveRecord::Base
   belongs_to :group
   belongs_to :leader
-  
+
   has_many :trips
 
   after_update :add_each_trip
@@ -9,6 +9,8 @@ class Plan < ActiveRecord::Base
   before_create :create_unique_id
 
   validates :unique_identifier, uniqueness: true
+
+  validates_presence_of :group, :leader
 
   def full_name
     first_name + " " + last_name

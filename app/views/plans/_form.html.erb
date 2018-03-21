@@ -4,7 +4,7 @@
       <h2><%= pluralize(@plan.errors.count, "error") %> prohibited this plan from being saved:</h2>
 
       <ul>
-      <% @group.errors.full_messages.each do |msg| %>
+      <% @plan.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
