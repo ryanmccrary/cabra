@@ -33,7 +33,7 @@
   </div>
 
   <div class="col-md-6">
-    <h4>Directions <%= google_link_to(@location.full_address) %></h4>
-    <%= google_static_image(@location.full_address) %>
+    <h4>Directions: <%= link_to @trip.full_address, "http://maps.google.com/?q=#{@trip.full_address}" %></h4>
+    <%= image_tag @trip.google_static_image %>
   </div>
 </div>
