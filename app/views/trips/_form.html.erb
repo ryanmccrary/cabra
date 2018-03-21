@@ -31,16 +31,17 @@
       <%= f.date_field :date, :id => 'datepicker' %> <br /><br />
 
       <%= f.label "Pickup time" %><br />
-      <%= f.time_field :pickup_time %><br /><br />
+      <%= f.input :pickup_time, input_html: { class: 'time-input' } %><br /><br />
 
       <%= f.label "Dropoff time" %><br />
-      <%= f.time_field :dropoff_time %><br /><br />
+      <%= f.input :dropoff_time, input_html: { class: 'time-input' } %><br /><br />
     </div>
   </div>
 
     <% if params[:group].present? %>
-      <%= f.hidden_field :group_id, value: @group.id %>
+      <%= f.hidden_field :group_id, value: params[:group] %>
     <% end %>
+
     <center>
       <%= f.submit class: "btn btn-primary" %>
     </center>

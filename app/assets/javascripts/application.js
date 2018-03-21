@@ -20,9 +20,14 @@
 
 //= require jquery-ui/widgets/datepicker
 
+//= require jquery.timepicker.js
+
 
   $( function() {
     $( "#datepicker" ).datepicker({
       dateFormat: 'yy-mm-dd'
     });
+
+    $('.time-input').timepicker();
   } );
+
