@@ -1,6 +1,6 @@
 <h3>Add trips to plan for <%= @plan.group.name %></h3>
 
-<% if @possible.empty? %>
+<% if @possible.blank? %>
 
   <h3>There are no upcoming trips scheduled for <%= @plan.group.name %>. Please <%= link_to "create a new trip", trips_path %> to add to this plan.</h3>
 
