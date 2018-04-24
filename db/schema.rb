@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170202195144) do
+ActiveRecord::Schema.define(version: 20180424030609) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 20170202195144) do
   end
 
   add_index "activities", ["name"], name: "index_activities_on_name", unique: true, using: :btree
+
+  create_table "confirmations", force: :cascade do |t|
+    t.integer  "plan_id"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
@@ -70,11 +77,13 @@ ActiveRecord::Schema.define(version: 20170202195144) do
 
   create_table "plans", force: :cascade do |t|
     t.string   "unique_identifier"
-    t.boolean  "plan_sent",         default: false
+    t.boolean  "plan_sent",          default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "group_id"
     t.integer  "leader_id"
+    t.datetime "confirmation"
+    t.string   "confirmation_email"
   end
 
   add_index "plans", ["unique_identifier"], name: "index_plans_on_unique_identifier", using: :btree
