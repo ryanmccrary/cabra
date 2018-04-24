@@ -4,8 +4,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :leadernotes
+  has_many :reports
+
   # Roles defined for cancancan (instead of adding roles model)
-  ROLES = %i[admin regular reporter]
+  ROLES = %i[admin regular reporter].freeze
 
   # Roles logic to covert string above to/from integers
   def roles=(roles)
@@ -22,7 +25,4 @@ class User < ActiveRecord::Base
   def has_role?(role)
     roles.include?(role)
   end
-
-  has_many :leadernotes
-  has_many :reports
 end

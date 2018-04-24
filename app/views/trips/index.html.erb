@@ -96,6 +96,7 @@
             <td><b></b></td>
             <td><b></b></td>
             <td><b>Plan?</b></td>
+            <td><b>Confirmed?</b></td>
             <td><b></b></td>
           </tr>
         </thead>
@@ -111,6 +112,11 @@
                 &nbsp;
               <% else %>
                 <%= link_to plan_path(trip.plan) do %><span class="glyphicon glyphicon-ok"><% end %></span>
+              <% end %>
+            </td>
+            <td>
+              <% if !trip.plan.nil? && trip.confirmed? %>
+                <span class="glyphicon glyphicon-ok">
               <% end %>
             </td>
             <td>

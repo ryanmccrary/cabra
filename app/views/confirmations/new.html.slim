@@ -1,0 +1,16 @@
+= simple_form_for @confirmation, url: plan_confirmations_path do |f|
+  = f.error_notification
+
+  .row.alert-danger
+    .col-md-4.col-md-offset-4
+      br
+      | Your trips have not yet been confirmed. Please review your proposed trips below and then enter your email to confirm.
+      | Your trips will not be saved for your group until you have confirmed. All confirmed trips will be subject to cancellation policies.
+      = f.input :email
+
+      = f.button :submit
+      br
+      br
+  br
+
+= render 'plans/list'

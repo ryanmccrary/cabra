@@ -1,7 +1,6 @@
 class PlansController < ApplicationController
   before_filter :authenticate_user!, except: [:show]
 
-
   layout :public_layout
 
   def index
@@ -15,9 +14,9 @@ class PlansController < ApplicationController
     if @plan.save
       if @plan.trips.empty?
         @possible = @plan.group.trips.adding_trips
-        render "add_trips"
+        render 'add_trips'
       else
-        redirect_to plans_path, notice: "Plan successfully created"
+        redirect_to plans_path, notice: 'Plan successfully created'
       end
     else
       render "new"
@@ -26,19 +25,24 @@ class PlansController < ApplicationController
   def show
     @plan = Plan.find_by_unique_identifier(params[:id])
     @trips = @plan.trips.order('date ASC')
+    if @plan.confirmed?
+      render 'show'
+    else
+      redirect_to new_plan_confirmation_path(@plan)
+    end
   end
   def edit
     @plan = Plan.find_by_unique_identifier(params[:id])
     @group = @plan.group
     @possible = @plan.group.trips.adding_trips
-    render "add_trips"
+    render 'add_trips'
   end
   def update
     @plan = Plan.find_by_unique_identifier(params[:id])
     if @plan.update_attributes(plan_params)
-      redirect_to plans_path, notice: "Plan successfully updated!"
+      redirect_to plans_path, notice: 'Plan successfully updated!'
     else
-      render "edit"
+      render 'edit'
     end
   end
   def add_trips
@@ -56,7 +60,7 @@ class PlansController < ApplicationController
   def destroy
     @plan = Plan.find_by_unique_identifier(params[:id])
     @plan.destroy
-    redirect_to plans_path, notice: "Plan destroyed"
+    redirect_to plans_path, notice: 'Plan destroyed'
   end
 
     private
@@ -68,9 +72,9 @@ class PlansController < ApplicationController
 
     def public_layout
       if user_signed_in?
-        "application"
+        'application'
       else
-        "public"
+        'public'
       end
     end
 end

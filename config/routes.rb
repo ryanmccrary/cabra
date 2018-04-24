@@ -19,7 +19,9 @@ Cabra::Application.routes.draw do
     member do
       post 'add_trips'
     end
+    resources :confirmations
   end
+
 
   root to: "trips#index"
 
