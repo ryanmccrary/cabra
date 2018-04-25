@@ -17,8 +17,8 @@
           <td><b>Group</b></td>
           <td><b>Leader</b></td>
           <td><b>Edit</b></td>
-          <td><b>Sent?</b></td>
           <td><b>Link</b></td>
+          <td><b>Confirmed?</b></td>
         </tr>
       </thead>
 
@@ -28,8 +28,12 @@
         <td><%= plan.group.name %></td>
         <td><%= plan.leader.full_name %></td>
         <td><%= link_to "Edit", edit_plan_path(plan) %></td>
-        <td></td>
         <td><%= link_to plan_path(plan), plan_path(plan) %></td>
+        <td>
+          <% if plan.confirmed? %>
+            <span class="glyphicon glyphicon-ok"></span>
+          <% end %>
+        </td>
         <td><%= link_to 'Delete', plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
       <% end %>

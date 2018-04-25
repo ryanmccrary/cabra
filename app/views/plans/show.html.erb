@@ -1,12 +1,38 @@
 <% if user_signed_in? %>
-  <div class="row">
-    <div class="alert alert-danger"><b>You can delete this plan, but it cannot be undone <%= link_to 'click here to delete current plan', @plan, method: :delete, data: { confirm: 'Are you sure you want to delete this plan? This cannot be undone' } %></b></div>
-    <div class="alert alert-warning"><%= link_to "Add a trip to this plan", edit_plan_path(@plan) %></div>
-  </div>
+  <% if @plan.confirmed? == false %>
+    <center><h1>This plan has not been confirmed</h1></center>
+    <br />
+  <% end %>
+    <div class="row">
+      <div class="alert alert-danger"><b>You can delete this plan, but it cannot be undone <%= link_to 'click here to delete current plan', @plan, method: :delete, data: { confirm: 'Are you sure you want to delete this plan? This cannot be undone' } %></b></div>
+      <div class="alert alert-warning"><%= link_to "Add a trip to this plan", edit_plan_path(@plan) %></div>
+    </div>
+<% else %>
+  <% if @plan.confirmed? == false %>
+    <%= simple_form_for @plan, url: confirm_plan_plan_path do |f| %>
+      <%= f.error_notification %>
+
+      <div class="row alert-danger">
+        <div class="col-md-4 col-md-offset-4">
+        <br />
+        Your trips have not yet been confirmed. Please review your proposed trips below and then enter your email to confirm.
+        Until your trips have been confirmed, they may be available to other groups.
+        Your trips will not be saved for your group until you have confirmed. All confirmed trips will be subject to cancellation policies.
+        <br /><br />
+        <%= f.input :confirmation_email %>
+
+        <%= f.button :submit, 'Confirm Trips' %>
+        <br /><br />
+      </div>
+    </div>
+      <% end %>
+  <% end %>
 <% end %>
+<br /><br />
 
 <div class="row">
 <div class="col-md-8">
+
   <center><h3>Trip Plan for <b><%= @plan.leader.full_name %> (<%= @plan.group.name %>)</b></h3></center>
 
   <p>We're excited about your upcoming GOAT trips! Each of your upcoming trips should be listed below with the details you need for each. If you have any questions or corrections, feel free to contact our program staff. This link will be available through all of your trips whenever you need to reference it.</p></div>
@@ -76,7 +102,7 @@
   </div>
 
 </div>
-<div class="alert alert-warning" role="alert">In the case of inclement weather, we will plan on climbing at GOAT's indoor climbing facility at 61 Byrdland Dr in Greenville, SC 29607</div>
+<div class="alert alert-warning" role="alert">In the case of inclement weather, we will make alternate plans the day of the scheduled trip</div>
 
 <br />
 <hr />
