@@ -6,6 +6,7 @@ class Trip < ActiveRecord::Base
 
   has_one :report
 
+  delegate :confirmed?, to: :plan
   delegate :full_address, to: :location
 
   scope :future, -> { where("date > ?", Date.today) }

@@ -18,6 +18,7 @@ Cabra::Application.routes.draw do
   resources :plans do
     member do
       post 'add_trips'
+      patch 'confirm_plan'
     end
   end
 

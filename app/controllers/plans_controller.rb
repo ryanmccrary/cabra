@@ -1,7 +1,6 @@
 class PlansController < ApplicationController
   before_filter :authenticate_user!, except: [:show]
 
-
   layout :public_layout
 
   def index
@@ -51,6 +50,16 @@ class PlansController < ApplicationController
       redirect_to plan_path(@plan), notice: "Trips added to #{@plan.leader.full_name} plan for #{@plan.group.name} (Plan id: #{@plan.unique_identifier})"
     else
       redirect_to plans_path, notice: "No trips added to #{@plan.leader.full_name} plan for #{@plan.group.name} (Plan id: #{@plan.unique_identifier})"
+    end
+  end
+  def confirm_plan
+    @plan = Plan.find_by_unique_identifier(params[:id])
+    @plan.update_attributes(plan_params)
+    @plan.confirm = Time.now
+    if @plan.save
+      redirect_to plan_path(@plan), notice: "Your plan has been confirmed"
+    else
+      redirect_to plan_path(@plan), notice: "This plan has already been confirmed"
     end
   end
   def destroy
