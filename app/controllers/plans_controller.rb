@@ -1,5 +1,5 @@
 class PlansController < ApplicationController
-  before_filter :authenticate_user!, except: [:show, :update, :confirm_plan]
+  before_filter :authenticate_user!, except: [:show, :confirm_plan]
 
   layout :public_layout
 
@@ -55,7 +55,7 @@ class PlansController < ApplicationController
   def confirm_plan
     @plan = Plan.find_by_unique_identifier(params[:id])
     @plan.update_attributes(plan_params)
-    @plan.confirm = Time.now
+    @plan.confirmation = Time.now
     if @plan.save
       redirect_to plan_path(@plan), notice: "Your plan has been confirmed"
     else
