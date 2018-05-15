@@ -1,5 +1,5 @@
 class PlansController < ApplicationController
-  before_filter :authenticate_user!, except: [:show, :confirm_plan]
+  before_filter :authenticate_user!, except: [:show, :update, :confirm_plan]
 
   layout :public_layout
 
