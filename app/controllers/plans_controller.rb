@@ -1,5 +1,6 @@
 class PlansController < ApplicationController
   before_filter :authenticate_user!, except: [:show, :confirm_plan]
+  load_and_authorize_resource, except: [:show, :confirm_plan]
 
   layout :public_layout
 
@@ -57,9 +58,9 @@ class PlansController < ApplicationController
     @plan.update_attributes(plan_params)
     @plan.confirmation = Time.now
     if @plan.save
-      redirect_to plan_path(@plan), notice: "Your plan has been confirmed"
+      redirect_to plan_path(@plan), notice: "Your trips have been confirmed! We will be in touch as your trips get closer!"
     else
-      redirect_to plan_path(@plan), notice: "This plan has already been confirmed"
+      redirect_to plan_path(@plan), notice: "This plan has already been confirmed, your trips are confirmed."
     end
   end
   def destroy
