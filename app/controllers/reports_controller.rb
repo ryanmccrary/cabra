@@ -6,6 +6,9 @@ class ReportsController < ApplicationController
     @reports = Report.all
     @male = Report.all.sum(:male)
     @female = Report.all.sum(:female)
+
+    @current_male = Report.current_year.sum(:male)
+    @current_female = Report.current_year.sum(:female)
   end
   def new
     if params[:trip].present?
